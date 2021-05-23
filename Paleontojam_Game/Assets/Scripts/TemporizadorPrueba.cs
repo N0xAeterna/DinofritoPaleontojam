@@ -8,6 +8,7 @@ public class TemporizadorPrueba : MonoBehaviour
 {
     // soporte para temporizador
     Temporizador prueba;
+    int cambioDeDuracion = 1;
 
     /// <summary>
     /// inicializa el temporizador
@@ -16,7 +17,7 @@ public class TemporizadorPrueba : MonoBehaviour
     {
         // instanciando temporizador
         prueba = gameObject.AddComponent<Temporizador>();
-        prueba.Duracion = 1;
+        prueba.Duracion = cambioDeDuracion++;
         prueba.Iniciar();
     }
 
@@ -25,11 +26,17 @@ public class TemporizadorPrueba : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if (prueba.Corriendo)
+        {
+            print("Temporizador\nDuracion: " + prueba.Duracion + ", Restante: " + prueba.TiempoRestante);
+        }
+
         if (prueba.Finalizado)
         {
-            print("Se ha finalizado el temporizador");
+            print("Se ha finalizado el temporizador, duracion: " + (cambioDeDuracion - 1));
 
             // reiniciando
+            prueba.Duracion = cambioDeDuracion++;
             prueba.Iniciar();
         }
     }
