@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dialogo
+  - Terreno
+  - Rails
+  - Rail
+  - Obstacles
   layers:
   - Default
   - TransparentFX

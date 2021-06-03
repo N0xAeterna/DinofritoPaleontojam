@@ -11,20 +11,20 @@ public class Dialogo : MonoBehaviour
 
     // soporte para dialogo
     [SerializeField]
-    string nombre;
+    string nombre = null;
 
     [SerializeField]
     [TextArea(3, 10)]
-    string[] oraciones;
+    string[] oraciones = null;
     Queue<string> dialogo;
 
     float velocidadDeEscrituraPorCaracter = .02f;
 
     // soporte para UI
     [SerializeField]
-    Text uiTextoNombre;
+    Text uiTextoNombre = null;
     [SerializeField]
-    Text uiTextoDialogo;
+    Text uiTextoDialogo = null;
 
     // soporte para estado de dialogo
     bool iniciado = false;
