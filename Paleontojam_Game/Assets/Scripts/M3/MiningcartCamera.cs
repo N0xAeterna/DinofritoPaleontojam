@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MinekartCamera : MonoBehaviour
+public class MiningcartCamera : MonoBehaviour
 {
     GameObject player;
 

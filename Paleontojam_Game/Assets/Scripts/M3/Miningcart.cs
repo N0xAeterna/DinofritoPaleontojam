@@ -3,7 +3,7 @@
 /// <summary>
 /// Controls minekart behavior
 /// </summary>
-public class Minekart : MonoBehaviour
+public class Miningcart : MonoBehaviour
 {
     const float Accelaration = 15f;
     const float JumpForce = 10f;
