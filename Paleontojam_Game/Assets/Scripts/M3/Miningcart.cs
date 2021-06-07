@@ -32,13 +32,14 @@ public class Miningcart : MonoBehaviour
     {
         if (needsToAccelarate && onGround)
         {
-            rb.AddForce(Vector3.right * Accelaration, ForceMode.Acceleration);
+            rb.AddForce(transform.forward * Accelaration, ForceMode.Acceleration);
             needsToAccelarate = false;
         }
 
         if(jumpInput != 0 && onGround)
         {
-            rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+            rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
+            rb.AddForce(transform.up * JumpForce, ForceMode.Impulse);
             onGround = false;
         }
     }
@@ -48,6 +49,7 @@ public class Miningcart : MonoBehaviour
         if(other.transform.tag == "Rail")
         {
             transform.parent = other.gameObject.transform;
+            rb.constraints |= RigidbodyConstraints.FreezePositionY;
             onGround = true;
         }
     }
@@ -57,6 +59,7 @@ public class Miningcart : MonoBehaviour
         if(other.transform.tag == "Rail")
         {
             transform.parent = null;
+            rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
         }
     }
 }
