@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Player's main camera
+/// </summary>
 public class MiningcartCamera : MonoBehaviour
 {
     GameObject player;
@@ -9,7 +12,9 @@ public class MiningcartCamera : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Updates camera position to properly follow the player
+    /// </summary>
     void FixedUpdate()
     {
         Vector3 newPosition = new Vector3();

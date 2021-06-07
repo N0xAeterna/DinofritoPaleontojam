@@ -1,39 +1,87 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Controls minekart behavior
+/// Mining cart behavior
 /// </summary>
 public class Miningcart : MonoBehaviour
 {
-    const float Accelaration = 15f;
+    // accelaration support
+    const float Acceleration = 25f;
+    const float MaxVelocity = 40f;
+    float accelerationInput;
+
+    // speed clamping support
+    bool needsToAccelerateForward = false;
+    bool needsToAccelerateReverse = false;
+
+    // jump support
     const float JumpForce = 10f;
-    const float MaxVelocity = 20f;
-    Rigidbody rb;
-    bool needsToAccelarate = false;
     bool onGround = false;
     float jumpInput;
 
+    // rotation support
+    float horizontalInput;
+    const float AnglesPerSecond = 180f;
+
+    // for efficiency
+    Rigidbody rb;
+    
+    /// <summary>
+    /// Gets RigidBody Components
+    /// </summary>
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
+    /// <summary>
+    /// Handles speed clamping and input for accelaration and jumping
+    /// </summary>
     private void Update()
     {
+        // makes sure it can only accelarate while not at max speed
         if(rb.velocity.x < MaxVelocity)
         {
-            needsToAccelarate = true;
+            needsToAccelerateForward = true;
         }
 
-        jumpInput = Input.GetAxis("JumpMinekart");
+        if(rb.velocity.x > -MaxVelocity)
+        {
+            needsToAccelerateReverse = true;
+        }
+
+        // updating input
+        jumpInput = Input.GetAxis("JumpMiningcart");
+        accelerationInput = Input.GetAxis("AccelerateMiningcart");
+        horizontalInput = Input.GetAxis("Horizontal");
+    
+        // handling mid air rotation
+        if (horizontalInput != 0 && !onGround)
+        {
+            transform.Rotate(Vector3.right * AnglesPerSecond * Time.deltaTime, horizontalInput);
+        }
     }
 
+    /// <summary>
+    /// Applies physic movement, accelaration and jumping
+    /// </summary>
     private void FixedUpdate()
     {
-        if (needsToAccelarate && onGround)
+        if (onGround)
         {
-            rb.AddForce(transform.forward * Accelaration, ForceMode.Acceleration);
-            needsToAccelarate = false;
+            // handling acceleration input
+            if(needsToAccelerateForward && accelerationInput > 0)
+            {
+                rb.AddForce(transform.forward * accelerationInput * Acceleration, ForceMode.Acceleration);
+                needsToAccelerateForward = false;
+            }
+
+            if(needsToAccelerateReverse && accelerationInput < 0)
+            {
+                rb.AddForce(transform.forward * accelerationInput * Acceleration, ForceMode.Acceleration);
+                needsToAccelerateReverse = false;
+            }
+            
         }
 
         if(jumpInput != 0 && onGround)
@@ -46,20 +94,23 @@ public class Miningcart : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        // sticks mining cart to rails by enabling y pos constraint
         if(other.transform.tag == "Rail")
         {
             transform.parent = other.gameObject.transform;
-            rb.constraints |= RigidbodyConstraints.FreezePositionY;
+            //rb.constraints |= RigidbodyConstraints.FreezePositionY;
             onGround = true;
         }
     }
 
     private void OnCollisionExit(Collision other)
     {
+        // unsticks mining cart from rails by disabling y pos constraint
         if(other.transform.tag == "Rail")
         {
             transform.parent = null;
-            rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
+            //rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
+            onGround = false;
         }
     }
 }
