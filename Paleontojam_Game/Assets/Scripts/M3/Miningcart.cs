@@ -16,12 +16,13 @@ public class Miningcart : MonoBehaviour
 
     // jump support
     const float JumpForce = 10f;
-    bool onGround = false;
     float jumpInput;
+    bool onGround = false;
+    bool jumpApplied = false;
 
     // rotation support
     float horizontalInput;
-    const float AnglesPerSecond = 180f;
+    const float RotationSpeed = 10f;
 
     // for efficiency
     Rigidbody rb;
@@ -35,7 +36,7 @@ public class Miningcart : MonoBehaviour
     }
 
     /// <summary>
-    /// Handles speed clamping and input for accelaration and jumping
+    /// Handles speed clamping, input for accelaration, rotation and jumping 
     /// </summary>
     private void Update()
     {
@@ -54,12 +55,6 @@ public class Miningcart : MonoBehaviour
         jumpInput = Input.GetAxis("JumpMiningcart");
         accelerationInput = Input.GetAxis("AccelerateMiningcart");
         horizontalInput = Input.GetAxis("Horizontal");
-    
-        // handling mid air rotation
-        if (horizontalInput != 0 && !onGround)
-        {
-            transform.Rotate(Vector3.right * AnglesPerSecond * Time.deltaTime, horizontalInput);
-        }
     }
 
     /// <summary>
@@ -84,11 +79,20 @@ public class Miningcart : MonoBehaviour
             
         }
 
-        if(jumpInput != 0 && onGround)
+        if(jumpInput != 0 && onGround && !jumpApplied)
         {
             rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
             rb.AddForce(transform.up * JumpForce, ForceMode.Impulse);
-            onGround = false;
+            jumpApplied = true;
+        }
+
+        if (jumpInput == 0)
+            jumpApplied = false;
+
+        // handling mid air rotation
+        if (horizontalInput != 0 && !onGround)
+        {
+            rb.AddTorque(transform.right * RotationSpeed * horizontalInput * Time.deltaTime, ForceMode.Impulse);
         }
     }
 
@@ -111,6 +115,14 @@ public class Miningcart : MonoBehaviour
             transform.parent = null;
             //rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
             onGround = false;
+        }
+    }
+
+    void OnCollisionStay(Collision other)
+    {
+        if(other.transform.tag == "Rail")
+        {
+            onGround = true;
         }
     }
 }
