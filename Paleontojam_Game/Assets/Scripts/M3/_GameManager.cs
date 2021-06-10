@@ -22,7 +22,7 @@ public class _GameManager : MonoBehaviour
         if (restartTimer.Finalizado)
         {
             Message("");
-            RestartLvl3();
+            LoadLevel3();
 
             restartTimer.ReiniciarEstado();
         }
@@ -48,19 +48,17 @@ public class _GameManager : MonoBehaviour
 
     public void LoadLevel1()
     {
-        if(SceneManager.GetActiveScene().name != "Escena1")
-            SceneManager.LoadScene("Escena1");
+        SceneManager.LoadScene("Escena1");
     }
 
     public void LoadLevel3()
     {
-        if(SceneManager.GetActiveScene().name != "Minigame3")
-            SceneManager.LoadScene("Minigame3");
+        SceneManager.LoadScene("Minigame3");
     }
 
-    public static void RestartLvl3()
+    public static void LoadLevel2()
     {
-        SceneManager.LoadScene("Minigame3");
+        SceneManager.LoadScene("minigame2");
     }
 
     static public void Message(string msg)
