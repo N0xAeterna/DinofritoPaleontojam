@@ -92,5 +92,14 @@ public class Temporizador : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Reinicia el temporizar al estado inicial (como si nunca se hubiera iniciado)
+    /// </summary>
+    public void ReiniciarEstado()
+    {
+        iniciado = false;
+        corriendo = false;
+    }
+
     #endregion
 }

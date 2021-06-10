@@ -9,6 +9,8 @@ TagManager:
   - Rails
   - Rail
   - Obstacles
+  - _GoodEndTrigger
+  - _BadEndTrigger
   layers:
   - Default
   - TransparentFX
