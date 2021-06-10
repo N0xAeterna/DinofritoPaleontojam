@@ -5,6 +5,9 @@
 /// </summary>
 public class Miningcart : MonoBehaviour
 {
+    // eliminar luego
+    Temporizador restartTimer;
+
     // accelaration support
     const float Acceleration = 25f;
     const float MaxVelocity = 40f;
@@ -33,6 +36,10 @@ public class Miningcart : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        // eliminar luego
+        restartTimer = gameObject.AddComponent<Temporizador>();
+        restartTimer.Duracion = 3f;
     }
 
     /// <summary>
@@ -40,6 +47,13 @@ public class Miningcart : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        // eliminar luego
+        if(restartTimer.Finalizado)
+        {
+            _GameManager.RestartLvl3();
+            _GameManager.Message("");
+        }
+
         // makes sure it can only accelarate while not at max speed
         if(rb.velocity.x < MaxVelocity)
         {
@@ -76,14 +90,15 @@ public class Miningcart : MonoBehaviour
                 rb.AddForce(transform.forward * accelerationInput * Acceleration, ForceMode.Acceleration);
                 needsToAccelerateReverse = false;
             }
-            
-        }
 
-        if(jumpInput != 0 && onGround && !jumpApplied)
-        {
-            rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
-            rb.AddForce(transform.up * JumpForce, ForceMode.Impulse);
-            jumpApplied = true;
+            // handling jumpinput
+            if (jumpInput != 0 && !jumpApplied)
+            {
+                rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
+                rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+                jumpApplied = true;
+            }
+
         }
 
         if (jumpInput == 0)
@@ -123,6 +138,22 @@ public class Miningcart : MonoBehaviour
         if(other.transform.tag == "Rail")
         {
             onGround = true;
+        }
+    }
+
+    // eliminar luego
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.transform.tag)
+        {
+            case "_GoodEndTrigger":
+                _GameManager.Message("Has entregado el fosil, ganaste!");
+                restartTimer.Iniciar();
+                break;
+            case "_BadEndTrigger":
+                _GameManager.Message("No has podido entregar el fosil, fallaste");
+                restartTimer.Iniciar();
+                break;
         }
     }
 }
