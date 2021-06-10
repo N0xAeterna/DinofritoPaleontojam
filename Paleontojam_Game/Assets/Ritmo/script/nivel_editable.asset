@@ -1,0 +1,208 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 247eb48b74d82bc40ac9059c6bff8d81, type: 3}
+  m_Name: nivel_editable
+  m_EditorClassIdentifier: 
+  points:
+  - p_der: 2
+    p_izq: 0
+    p_yo: 0
+    t_der: 224.568
+    t_izq: 0
+    t_yo: 0
+    dura: 0.1
+    speed: 1
+  - p_der: 1
+    p_izq: 23
+    p_yo: 1
+    t_der: 224.568
+    t_izq: 0
+    t_yo: 224.568
+    dura: 0.1
+    speed: 1
+  - p_der: 3
+    p_izq: 0
+    p_yo: 2
+    t_der: 0
+    t_izq: 0
+    t_yo: 1.472
+    dura: 0.1
+    speed: 1
+  - p_der: 4
+    p_izq: 2
+    p_yo: 3
+    t_der: 0
+    t_izq: 0
+    t_yo: 3.6266668
+    dura: 0.1
+    speed: 1
+  - p_der: 5
+    p_izq: 3
+    p_yo: 4
+    t_der: 0
+    t_izq: 0
+    t_yo: 5.3546667
+    dura: 0.1
+    speed: 1
+  - p_der: 6
+    p_izq: 4
+    p_yo: 5
+    t_der: 0
+    t_izq: 0
+    t_yo: 6.5066667
+    dura: 0.1
+    speed: 1
+  - p_der: 7
+    p_izq: 5
+    p_yo: 6
+    t_der: 0
+    t_izq: 0
+    t_yo: 7.744
+    dura: 0.1
+    speed: 1
+  - p_der: 8
+    p_izq: 6
+    p_yo: 7
+    t_der: 0
+    t_izq: 0
+    t_yo: 9.984
+    dura: 0.1
+    speed: 1
+  - p_der: 9
+    p_izq: 7
+    p_yo: 8
+    t_der: 0
+    t_izq: 0
+    t_yo: 11.157333
+    dura: 0.1
+    speed: 1
+  - p_der: 10
+    p_izq: 8
+    p_yo: 9
+    t_der: 0
+    t_izq: 0
+    t_yo: 13.44
+    dura: 0.1
+    speed: 1
+  - p_der: 11
+    p_izq: 9
+    p_yo: 10
+    t_der: 0
+    t_izq: 0
+    t_yo: 14.570666
+    dura: 0.1
+    speed: 1
+  - p_der: 12
+    p_izq: 10
+    p_yo: 11
+    t_der: 0
+    t_izq: 0
+    t_yo: 15.68
+    dura: 0.1
+    speed: 1
+  - p_der: 13
+    p_izq: 11
+    p_yo: 12
+    t_der: 0
+    t_izq: 0
+    t_yo: 18.005333
+    dura: 0.1
+    speed: 1
+  - p_der: 14
+    p_izq: 12
+    p_yo: 13
+    t_der: 0
+    t_izq: 0
+    t_yo: 19.136
+    dura: 0.1
+    speed: 1
+  - p_der: 15
+    p_izq: 13
+    p_yo: 14
+    t_der: 0
+    t_izq: 0
+    t_yo: 23.637333
+    dura: 0.1
+    speed: 1
+  - p_der: 16
+    p_izq: 14
+    p_yo: 15
+    t_der: 0
+    t_izq: 0
+    t_yo: 24.938667
+    dura: 0.1
+    speed: 1
+  - p_der: 17
+    p_izq: 15
+    p_yo: 16
+    t_der: 0
+    t_izq: 0
+    t_yo: 25.941334
+    dura: 0.1
+    speed: 1
+  - p_der: 18
+    p_izq: 16
+    p_yo: 17
+    t_der: 0
+    t_izq: 0
+    t_yo: 27.050667
+    dura: 0.1
+    speed: 1
+  - p_der: 19
+    p_izq: 17
+    p_yo: 18
+    t_der: 0
+    t_izq: 0
+    t_yo: 28.288
+    dura: 0.1
+    speed: 1
+  - p_der: 20
+    p_izq: 18
+    p_yo: 19
+    t_der: 0
+    t_izq: 0
+    t_yo: 29.397333
+    dura: 0.3
+    speed: 1
+  - p_der: 21
+    p_izq: 19
+    p_yo: 20
+    t_der: 0
+    t_izq: 0
+    t_yo: 31.594667
+    dura: 0.1
+    speed: 1
+  - p_der: 22
+    p_izq: 20
+    p_yo: 21
+    t_der: 0
+    t_izq: 0
+    t_yo: 34.453335
+    dura: 0.1
+    speed: 1
+  - p_der: 23
+    p_izq: 21
+    p_yo: 22
+    t_der: 0
+    t_izq: 0
+    t_yo: 37.034668
+    dura: 0.1
+    speed: 1
+  - p_der: 1
+    p_izq: 22
+    p_yo: 23
+    t_der: 0
+    t_izq: 0
+    t_yo: 39.189335
+    dura: 0.1
+    speed: 1
+  iniciado: 1
