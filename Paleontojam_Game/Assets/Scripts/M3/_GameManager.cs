@@ -9,6 +9,30 @@ public class _GameManager : MonoBehaviour
     [SerializeField]
     Text mensaje = null;
 
+    Temporizador restartTimer;
+
+    private void Start()
+    {
+        restartTimer = gameObject.AddComponent<Temporizador>();
+        restartTimer.Duracion = 3f;
+    }
+
+    private void Update()
+    {
+        if (restartTimer.Finalizado)
+        {
+            Message("");
+            RestartLvl3();
+
+            restartTimer.ReiniciarEstado();
+        }
+    }
+
+    public static void RunRestartTimer()
+    {
+        Instance.restartTimer.Iniciar();
+    }
+
     private void Awake()
     {
         if(!Instance)
