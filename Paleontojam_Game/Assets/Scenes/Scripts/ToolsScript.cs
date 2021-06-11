@@ -5,11 +5,12 @@ using UnityEngine;
 public class ToolsScript : MonoBehaviour
 {
     public static ToolsScript instancia;
-    [SerializeField]private float Herramienta;
-    [SerializeField]private float Distancia;
+    [SerializeField] private float Herramienta;
+    [SerializeField] private float Distancia;
     public LayerMask layer;
     public LayerMask layerObject;
 
+    public bool CanGive = false;
     public float Herramienta1 { get => Herramienta; set => Herramienta = value; }
     public float Distancia1 { get => Distancia; set => Distancia = value; }
 
@@ -21,8 +22,12 @@ public class ToolsScript : MonoBehaviour
         }
     }
 
-  public void changeValor(float valor)
+    public void changeValor(float valor)
     {
         Herramienta = valor;
+    }
+    public void Gryppy(bool canOrNot)
+    {
+        CanGive = canOrNot;
     }
 }
