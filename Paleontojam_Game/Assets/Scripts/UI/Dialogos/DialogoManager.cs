@@ -21,7 +21,7 @@ public class DialogoManager : MonoBehaviour
     Queue<string> oraciones;
 
     // singleton
-    public static DialogoManager instancia;
+    static DialogoManager instancia;
 
     // soporte de estado
     bool iniciado = false;
@@ -124,7 +124,9 @@ public class DialogoManager : MonoBehaviour
 
         foreach(char letra in oracion.ToCharArray())
         {
-            txtOracion.text += letra;
+            if(txtOracion != null)
+                txtOracion.text += letra;
+
             yield return new WaitForSeconds(TiempoDeEsperaPorCaracter);
         }
     }

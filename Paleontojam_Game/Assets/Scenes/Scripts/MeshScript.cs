@@ -33,8 +33,8 @@ public class MeshScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            DialogoManager.instancia.MostrarSiguienteOracion();
-            if(DialogoManager.instancia.Finalizado){
+            DialogoManager.Instancia.MostrarSiguienteOracion();
+            if(DialogoManager.Instancia.Finalizado){
                 Destroy(ButtonManager.instancia.DesactiveInStart1[2]);
             }
         }

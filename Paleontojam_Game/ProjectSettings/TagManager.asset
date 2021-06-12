@@ -9,6 +9,8 @@ TagManager:
   - Rails
   - Rail
   - Obstacles
+  - _LoseGame
+  - _WinGame
   layers:
   - Default
   - TransparentFX
