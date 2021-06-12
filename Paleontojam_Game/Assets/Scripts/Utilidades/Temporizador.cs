@@ -68,11 +68,14 @@ public class Temporizador : MonoBehaviour
     /// </summary>
     public void Iniciar()
     {
-        if(tiempoObjetivo > 0)
+        if (!corriendo)
         {
-            iniciado = true;
-            corriendo = true;
-            tiempoTranscurrido = 0;
+            if (tiempoObjetivo > 0)
+            {
+                iniciado = true;
+                corriendo = true;
+                tiempoTranscurrido = 0;
+            }
         }
     }
 

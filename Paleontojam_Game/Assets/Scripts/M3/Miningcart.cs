@@ -126,4 +126,22 @@ public class Miningcart : MonoBehaviour
             onGround = true;
         }
     }
+
+    // eliminar despues
+    private void OnTriggerEnter(Collider other)
+    {
+        // eliminar despues
+        if (other.transform.tag == "_LoseGame")
+        {
+            _GameHandler.Instancia.Mensaje("Te has equivocado de camino, no has podido entregar el fosil");
+            _GameHandler.Instancia.IniciarTemporizador();
+        }
+
+        // eliminar despues
+        if (other.transform.tag == "_WinGame")
+        {
+            _GameHandler.Instancia.Mensaje("Has entregado el fosil con exito! felicidades");
+            _GameHandler.Instancia.IniciarTemporizador();
+        }
+    }
 }
