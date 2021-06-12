@@ -23,4 +23,5 @@ public class DialogoTrigger : MonoBehaviour
     }
 
     #endregion
+   
 }
