@@ -20,14 +20,24 @@ public class MeshScript : MonoBehaviour
     private int getid;
     private int NumHuesosTuWin;
     private bool oneTime;
+    public DialogoTrigger dialogoTrigger;
+  
     private void Start()
     {
 
         meshc = GetComponent<MeshCollider>();
-
+        ButtonManager.instancia.DesactiveInStart1[2].SetActive(true);
+        dialogoTrigger.IniciarDialogo();
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DialogoManager.instancia.MostrarSiguienteOracion();
+            if(DialogoManager.instancia.Finalizado){
+                Destroy(ButtonManager.instancia.DesactiveInStart1[2]);
+            }
+        }
         if (NumHuesosTuWin > huesos.Count - 1)
         {
             ButtonManager.instancia.DesactiveInStart1[1].SetActive(true);

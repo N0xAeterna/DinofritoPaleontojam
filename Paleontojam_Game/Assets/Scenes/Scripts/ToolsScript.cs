@@ -21,6 +21,10 @@ public class ToolsScript : MonoBehaviour
             instancia = this;
         }
     }
+    private void Start()
+    {
+        
+    }
 
     public void changeValor(float valor)
     {
@@ -30,4 +34,5 @@ public class ToolsScript : MonoBehaviour
     {
         CanGive = canOrNot;
     }
+    
 }

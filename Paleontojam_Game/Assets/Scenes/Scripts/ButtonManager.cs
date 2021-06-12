@@ -7,7 +7,7 @@ public class ButtonManager : MonoBehaviour
 {
     public static ButtonManager instancia;
     [SerializeField]private List<GameObject> DesactiveInStart;
-    [SerializeField] private GameObject gameOver;
+ 
 
     public List<GameObject> DesactiveInStart1 { get => DesactiveInStart; set => DesactiveInStart = value; }
 
