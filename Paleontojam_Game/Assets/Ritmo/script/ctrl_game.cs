@@ -27,6 +27,7 @@ public class ctrl_game : MonoBehaviour {
         p_time_barra = 2;
         img_bien.SetActive (false);
         img_mal.SetActive (false);
+        iniciar_juego();
     }
 
     // Update is called once per frame
