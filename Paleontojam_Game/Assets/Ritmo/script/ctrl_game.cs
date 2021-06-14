@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ctrl_game : MonoBehaviour {
@@ -26,6 +27,7 @@ public class ctrl_game : MonoBehaviour {
         p_time_barra = 2;
         img_bien.SetActive (false);
         img_mal.SetActive (false);
+        iniciar_juego();
     }
 
     // Update is called once per frame
@@ -94,7 +96,8 @@ public class ctrl_game : MonoBehaviour {
         }
         if (Input.GetKeyDown (KeyCode.R)) {
             print ("ottro");
-            Application.LoadLevel (0);
+            //Application.LoadLevel (0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
