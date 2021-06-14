@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ctrl_game : MonoBehaviour {
@@ -94,7 +95,8 @@ public class ctrl_game : MonoBehaviour {
         }
         if (Input.GetKeyDown (KeyCode.R)) {
             print ("ottro");
-            Application.LoadLevel (0);
+            //Application.LoadLevel (0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

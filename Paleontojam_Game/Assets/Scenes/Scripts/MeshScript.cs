@@ -95,7 +95,16 @@ public class MeshScript : MonoBehaviour
             {
                 if (ToolsScript.instancia.CanGive)
                 {
-                    TomarObjeto = true;
+                    for (int i = 0; i < vertices.Length; i++)
+                    {
+                        float distancia = Vector3.Distance(huesos[getid].transform.position, transform.TransformPoint(vertices[i])); print(distancia+"/"+vertices[i]);
+                        if (distancia < 3f)
+                        {
+                            TomarObjeto = true;
+                            print("llego");
+                        }
+                    }
+                   
 
 
                 }
@@ -141,7 +150,7 @@ public class MeshScript : MonoBehaviour
 
 
         mesh.vertices = vertices;
-
+       
         if (TomarObjeto)
         {
 
@@ -178,6 +187,13 @@ public class MeshScript : MonoBehaviour
         oneTime = true;
         yield return new WaitForSeconds(1);
         oneTime = false;
+    }
+    private void OnDrawGizmos()
+    {
+        for (int i = 0; i < huesos.Count; i++)
+        {
+            Gizmos.DrawWireSphere(huesos[i].transform.position, 1);
+        }
     }
 
 }
