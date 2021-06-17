@@ -2029,9 +2029,10 @@ MonoBehaviour:
   point_moment: 0
   al_cambio_coloco_point: 0
   pausa: 0
+  prueba: 1
   limit_1: 4.6
   limit_2: -4.6
-  speed: 2
+  speed: 1.5
   point_dura: 0.3
   con1_: 0
   points: []
@@ -2039,7 +2040,9 @@ MonoBehaviour:
   t_actual: {fileID: 2026184802}
   t_total: {fileID: 555318615}
   t_pista_: {fileID: 909749486}
-  p_time_actual: 0
+  ima_bien_: []
+  ima_mal_: []
+  p_t_actual: 0
   p_time_barra: 0
   p_actual: 0
   p_total: 0
@@ -2283,7 +2286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &730481527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2849,7 +2852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1031528848
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3001,7 +3004,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1c4bb6a3ae18a3f41b93fd183279f1f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 718ef4f658a85de4a96f667667bed47c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3541,7 +3544,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bbbf275aa79ab4041acc967dd33c1e1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e6b25ef653381fa40940b33a463af1ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4635,7 +4638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1814552940
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5002,7 +5005,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1960946183
 AudioSource:
   m_ObjectHideFlags: 0
