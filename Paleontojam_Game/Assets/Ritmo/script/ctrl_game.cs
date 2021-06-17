@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class ctrl_game : MonoBehaviour {
     public Transform marco, b_player, b_point;
-    public bool inicia, pulsar, rebote_l, on_play, point_moment, al_cambio_coloco_point, pausa;
+    public bool inicia, pulsar, rebote_l, on_play, point_moment, al_cambio_coloco_point, pausa, prueba;
     public float limit_1, limit_2, speed, point_dura, con1_;
     public List<point> points = new List<point> ();
     public List<obj_point> obj_points_ = new List<obj_point> ();
     public Text t_actual, t_total, t_pista_;
-    public int p_time_actual, p_time_barra, p_actual, p_total, c_obj_point;
+    public List<GameObject> ima_bien_ = new List<GameObject> ();
+    public List<GameObject> ima_mal_ = new List<GameObject> ();
+    public int p_t_actual, p_time_barra, p_actual, p_total, c_obj_point;
     public AudioSource pista;
     public GameObject obj_point_, img_bien, img_mal;
 
@@ -24,15 +26,16 @@ public class ctrl_game : MonoBehaviour {
         n_.GetComponent<obj_point> ().control = this;
         obj_points_.Add (n_.GetComponent<obj_point> ());
         p_time_barra = 2;
-        img_bien.SetActive (false);
-        img_mal.SetActive (false);
+        mal_ ();
+        on_play = true;
+        iniciar_juego ();
     }
 
     // Update is called once per frame
     void Update () {
         if (on_play) {
-            con1_ = con1_ + (1 * Time.deltaTime);
-            t_pista_.text = pista.time.ToString ();
+            //con1_ = con1_ + (1 * Time.deltaTime);
+            //t_pista_.text = pista.time.ToString ();
             //si ya se ha iniciado el nivel
             if (inicia) {
                 if (!pista.isPlaying && pausa || pista.time > points[1].t_yo) {
@@ -44,8 +47,7 @@ public class ctrl_game : MonoBehaviour {
                     point_moment = false;
                     finalizar_juego ();
                     pista.Stop ();
-                    img_bien.SetActive (false);
-                    img_mal.SetActive (false);
+                    mal_ ();
                 }
                 rebotar ();
                 //print ("estoy");
@@ -55,17 +57,27 @@ public class ctrl_game : MonoBehaviour {
                         //si podemos pulsar
                         pulsar = false;
                         point_moment = false;
-                        //print ("bien pulsado");
-                        img_bien.SetActive (true);
-                        img_mal.SetActive (false);
-                        p_time_actual = points[p_time_actual].p_der;
+                        print (p_actual.ToString ());
+                        if (prueba) {
+                            img_bien.SetActive (true);
+                            img_mal.SetActive (false);
+                        } else {
+                            ima_bien_[p_t_actual].SetActive (true);
+                            ima_mal_[p_t_actual].SetActive (false);
+                        }
+                        //p_time_actual = points[p_time_actual].p_der;
                     } else {
                         //si no podemos pulsar
                         p_actual -= 1;
                         t_actual.text = p_actual.ToString ();
-                        //print ("mal pulsado");
-                        img_bien.SetActive (false);
-                        img_mal.SetActive (true);
+                        print (p_actual.ToString ());
+                        if (prueba) {
+                            img_bien.SetActive (false);
+                            img_mal.SetActive (true);
+                        } else {
+                            ima_bien_[p_t_actual].SetActive (false);
+                            ima_mal_[p_t_actual].SetActive (true);
+                        }
                     }
                 }
             }
@@ -76,12 +88,17 @@ public class ctrl_game : MonoBehaviour {
                     //print ("iniio");
                     //si se ha pulsado
                     if (click ()) {
-                        img_bien.SetActive (true);
-                        img_mal.SetActive (false);
+                        if (prueba) {
+                            img_bien.SetActive (true);
+                            img_mal.SetActive (false);
+                        } else {
+                            ima_bien_[p_t_actual].SetActive (true);
+                            ima_mal_[p_t_actual].SetActive (false);
+                        }
                         inicia = true;
                         pulsar = false;
                         point_moment = false;
-                        p_time_actual = points[p_time_actual].p_der;
+                        //p_time_actual = points[p_time_actual].p_der;
                         p_time_barra = points[p_time_barra].p_der;
                         colocar_points (limit_2);
                         marco.transform.GetChild (0).gameObject.GetComponent<obj_point> ().llamar_destruir (point_dura);
@@ -92,15 +109,20 @@ public class ctrl_game : MonoBehaviour {
             }
 
         }
-        if (Input.GetKeyDown (KeyCode.R)) {
-            print ("ottro");
-            Application.LoadLevel (0);
+        //if (Input.GetKeyDown (KeyCode.R)) {
+        //    print ("ottro");
+        //    Application.LoadLevel (0);
+        //}
+
+        if (Input.GetKeyDown (KeyCode.Escape)) {
+            print ("pausa");
+            //atras ();
         }
     }
 
     bool click () {
         if (Input.GetKeyDown ("a")) {
-            //print ("presionas");
+            print ("presionas");
             return true;
         }
         return false;
@@ -117,16 +139,18 @@ public class ctrl_game : MonoBehaviour {
             //cambiamos el limite
             limit = limit_2;
             colocar_points (limit);
+            speed += 0.4f;
             //print (con1_ + "");
-            con1_ = 0;
+            //con1_ = 0;
             //print (pista.time + "pista");
         } else if (b_player.position.x == limit_2) {
             rebote_l = true;
             //cambiamos el limite 
             limit = limit_1;
             colocar_points (limit);
+            speed += 0.4f;
             //print (con1_ + "");
-            con1_ = 0;
+            //con1_ = 0;
             //print (pista.time + "pista");
         }
         if (rebote_l) {
@@ -146,7 +170,7 @@ public class ctrl_game : MonoBehaviour {
         t_actual.text = points.Count.ToString ();
         p_actual = points.Count;
         p_total = points.Count;
-        p_time_actual = 0;
+        p_t_actual = 0;
         p_time_barra = 0;
         points = n_.points;
     }
@@ -217,8 +241,14 @@ public class ctrl_game : MonoBehaviour {
             point_moment = false;
             pulsar = false;
             t_actual.text = p_actual.ToString ();
-            img_bien.SetActive (false);
-            img_mal.SetActive (true);
+            if (prueba) {
+                img_bien.SetActive (false);
+                img_mal.SetActive (true);
+            } else {
+                ima_bien_[p_t_actual].SetActive (false);
+                ima_mal_[p_t_actual].SetActive (true);
+            }
+            print (p_actual.ToString ());
             Invoke ("mal_", 0.3f);
         }
     }
@@ -231,11 +261,21 @@ public class ctrl_game : MonoBehaviour {
     public void atras () {
         on_play = false;
         pista.Stop ();
+        pulsar = false;
+        point_moment = false;
+        inicia = false;
+        obj_points_.Clear ();
+        b_point.position = new Vector3 (4f, 5.5f, 1f);
     }
 
     void mal_ () {
-        img_bien.SetActive (false);
-        img_mal.SetActive (false);
+        if (prueba) {
+            img_bien.SetActive (false);
+            img_mal.SetActive (false);
+        } else {
+            ima_bien_[p_t_actual].SetActive (false);
+            ima_mal_[p_t_actual].SetActive (false);
+        }
     }
 
     public void finalizar_juego () {
