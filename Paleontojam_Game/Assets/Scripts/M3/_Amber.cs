@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class _Amber : MonoBehaviour
 {
-    bool destroyed = false;
-
-    public bool Destroyed { get { return destroyed; } }
-
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag == "Rail")
+        if (other.transform.tag == "Rail")
         {
-            _GameManager.Message("Oh no! has destruido el fosil");
-            _GameManager.RunRestartTimer();
-            destroyed = true;
+            _GameHandler.Instancia.Mensaje("El fosil se ha golpeado demasiado, ya no se puede entregar en este estado");
+            _GameHandler.Instancia.IniciarTemporizador();
         }
     }
 }

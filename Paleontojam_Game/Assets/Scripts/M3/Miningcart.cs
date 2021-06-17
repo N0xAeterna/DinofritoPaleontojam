@@ -5,10 +5,6 @@
 /// </summary>
 public class Miningcart : MonoBehaviour
 {
-    // eliminar luego
-    [SerializeField]
-    GameObject amber = null;
-
     // accelaration support
     const float Acceleration = 25f;
     const float MaxVelocity = 40f;
@@ -131,22 +127,21 @@ public class Miningcart : MonoBehaviour
         }
     }
 
-    // eliminar luego
+    // eliminar despues
     private void OnTriggerEnter(Collider other)
     {
-        if (!amber.GetComponent<_Amber>().Destroyed)
+        // eliminar despues
+        if (other.transform.tag == "_LoseGame")
         {
-            switch (other.transform.tag)
-            {
-                case "_GoodEndTrigger":
-                    _GameManager.Message("Has entregado el fosil, ganaste!");
-                    _GameManager.RunRestartTimer();
-                    break;
-                case "_BadEndTrigger":
-                    _GameManager.Message("No has podido entregar el fosil, fallaste");
-                    _GameManager.RunRestartTimer();
-                    break;
-            }
-        }   
+            _GameHandler.Instancia.Mensaje("Te has equivocado de camino, no has podido entregar el fosil");
+            _GameHandler.Instancia.IniciarTemporizador();
+        }
+
+        // eliminar despues
+        if (other.transform.tag == "_WinGame")
+        {
+            _GameHandler.Instancia.Mensaje("Has entregado el fosil con exito! felicidades");
+            _GameHandler.Instancia.IniciarTemporizador();
+        }
     }
 }
