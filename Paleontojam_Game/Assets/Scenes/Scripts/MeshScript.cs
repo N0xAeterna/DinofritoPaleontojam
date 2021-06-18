@@ -98,6 +98,7 @@ public class MeshScript : MonoBehaviour
                     for (int i = 0; i < vertices.Length; i++)
                     {
                         float distancia = Vector3.Distance(huesos[getid].transform.position, transform.TransformPoint(vertices[i])); print(distancia+"/"+vertices[i]);
+                        ButtonManager.instancia.ListBones[getid].SetActive(true);
                         if (distancia < 3f)
                         {
                             TomarObjeto = true;
@@ -122,21 +123,21 @@ public class MeshScript : MonoBehaviour
                                 CountToDestroyObject = 0;
 
                             }; break;
-                        case 0.009f:
+                        case 0.01f:
                             if (CountToDestroyObject > 1)
                             {
                                 ButtonManager.instancia.DesactiveInStart1[0].SetActive(true);
                                 CountToDestroyObject = 0;
 
                             }; break;
-                        case 0.003f:
+                       /* case 0.006f:
                             if (CountToDestroyObject > 2)
                             {
                                 ButtonManager.instancia.DesactiveInStart1[0].SetActive(true);
                                 CountToDestroyObject = 0;
 
                             }
-                            ; break;
+                            ; break;*/
                     }
                 }
 
