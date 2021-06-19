@@ -20,7 +20,7 @@ public class MiningcartCamera : MonoBehaviour
         Vector3 newPosition = new Vector3();
         newPosition.x = player.transform.position.x + 4;
         newPosition.y = player.transform.position.y + 5;
-        newPosition.z = player.transform.position.z - 7.86f;
+        newPosition.z = player.transform.position.z - 15f;
 
         transform.position = newPosition;
     }

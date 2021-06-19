@@ -15,14 +15,14 @@ public class Miningcart : MonoBehaviour
     bool needsToAccelerateReverse = false;
 
     // jump support
-    const float JumpForce = 10f;
+    const float JumpForce = 1000f;
     float jumpInput;
     bool onGround = false;
     bool jumpApplied = false;
 
     // rotation support
     float horizontalInput;
-    const float RotationSpeed = 10f;
+    const float RotationForce = 1000f;
 
     // for efficiency
     Rigidbody rb;
@@ -93,7 +93,7 @@ public class Miningcart : MonoBehaviour
         // handling mid air rotation
         if (horizontalInput != 0 && !onGround)
         {
-            rb.AddTorque(transform.right * RotationSpeed * horizontalInput * Time.deltaTime, ForceMode.Impulse);
+            rb.AddTorque(transform.right * RotationForce * horizontalInput * Time.deltaTime, ForceMode.Impulse);
         }
     }
 
