@@ -1,0 +1,526 @@
+fileFormatVersion: 2
+guid: 64c6352307a26d647ab6e37a36da1ba0
+ModelImporter:
+  serializedVersion: 20101
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group15485Mat
+    second: {fileID: 2100000, guid: 8cb682b2afd87814da36ea27760155b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63345Mat
+    second: {fileID: 2100000, guid: ed3df9a7b9179fd4e96b23dfc4eb5f5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63346Mat
+    second: {fileID: 2100000, guid: 839a42f8d96413c47a4c610cf8c11683, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63347Mat
+    second: {fileID: 2100000, guid: 1a338d8dee4dd2d42bc9cfc66f7672de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63348Mat
+    second: {fileID: 2100000, guid: 95ff0b5485c6f7042aec51513003ea81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63349Mat
+    second: {fileID: 2100000, guid: 50f230a842b961440a427de0062a3d77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63350Mat
+    second: {fileID: 2100000, guid: 41d27d628308edf40b2fc0d1507fd391, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63351Mat
+    second: {fileID: 2100000, guid: 02ab1d95bb7963e48b79cbd452b37998, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63352Mat
+    second: {fileID: 2100000, guid: ae640b7a510cd904c81ced533a526adc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63353Mat
+    second: {fileID: 2100000, guid: 8ec3a96a00ba0a54c8adf02cff5cd84e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63354Mat
+    second: {fileID: 2100000, guid: dcc55e0236c1b5c4dae30fdc89058ceb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63355Mat
+    second: {fileID: 2100000, guid: b30c95d60d6e82848b01ccda89f0c08b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63356Mat
+    second: {fileID: 2100000, guid: 8057846cbe9a012458bb1aec10f99108, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63357Mat
+    second: {fileID: 2100000, guid: 8724c4ecd6665f14e9425bc0f4f78e6b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63358Mat
+    second: {fileID: 2100000, guid: 596374580ad17784e9bad14d013626d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63359Mat
+    second: {fileID: 2100000, guid: 0f8810562bfe8ce42a452dc2c6602c9e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63360Mat
+    second: {fileID: 2100000, guid: 30f4cea04281c154f90c463af23d0b2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63361Mat
+    second: {fileID: 2100000, guid: e0b56c7ac6e614447b20120d9cc556a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63362Mat
+    second: {fileID: 2100000, guid: 0aa85cb894dc3b54d99cfb23c70b4769, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63363Mat
+    second: {fileID: 2100000, guid: 76ff3d7e14ac2ba43b33c9918a3eddd7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63364Mat
+    second: {fileID: 2100000, guid: a50e39874da35a54b81a1132616d2ff7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63365Mat
+    second: {fileID: 2100000, guid: 8354ba4a784ece3439634ac6b69112ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63366Mat
+    second: {fileID: 2100000, guid: 87b24829640fea6438cd6fe32771c4cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63367Mat
+    second: {fileID: 2100000, guid: 98b1c7bd70cf9974fafb665dac75ff6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63368Mat
+    second: {fileID: 2100000, guid: b360d0261fc282b4e8ac33d8661c03ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63369Mat
+    second: {fileID: 2100000, guid: b82bb21d424849d408e85d8fc4c97bd8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63370Mat
+    second: {fileID: 2100000, guid: 5b60a8aa36defae4793871d6aa2d6993, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63371Mat
+    second: {fileID: 2100000, guid: 5e23f9b95ca437642a3f01daa89c0ef6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63372Mat
+    second: {fileID: 2100000, guid: 3ca560cd041576b44bca0fa365aa3682, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63373Mat
+    second: {fileID: 2100000, guid: be6472ff2a9994044be55dc8a65694f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63374Mat
+    second: {fileID: 2100000, guid: 983d806cef462ad488248c0266dfd6af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63375Mat
+    second: {fileID: 2100000, guid: 115b2a2fd820025449494c2b1d1117b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63376Mat
+    second: {fileID: 2100000, guid: e1b1445d8e2176b4589732292b475642, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63377Mat
+    second: {fileID: 2100000, guid: 5e9aa47a055a1864fbda9cde5aefed00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63378Mat
+    second: {fileID: 2100000, guid: 12bff05da04bdad40838bcd00527a8f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63379Mat
+    second: {fileID: 2100000, guid: b6fa3d85089626a499165441880c0c1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63380Mat
+    second: {fileID: 2100000, guid: c09654a60a877e847a8aaf8ac205f47c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63381Mat
+    second: {fileID: 2100000, guid: e4c12d6cac7337d4b852a21f2a1a5e63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63382Mat
+    second: {fileID: 2100000, guid: 522b86b50d246bb439e5957e758511a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63383Mat
+    second: {fileID: 2100000, guid: e4407d3909ac8d04d8b2ba8549c274ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63384Mat
+    second: {fileID: 2100000, guid: 901af545f1cd10b46a95191ae9ee8487, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63385Mat
+    second: {fileID: 2100000, guid: 0e52af8f90d9f9648b94647a9d45a0e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63386Mat
+    second: {fileID: 2100000, guid: a97b339467567264e9acfb04506b1f76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63387Mat
+    second: {fileID: 2100000, guid: c2d87c84dfc29e749811954a752ed2f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63388Mat
+    second: {fileID: 2100000, guid: 4e4cfd8f50a9ef7438d1f74e0bfa16e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63389Mat
+    second: {fileID: 2100000, guid: e655c7c3613658f49a0c7447098668d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63390Mat
+    second: {fileID: 2100000, guid: fddeda3e29d5e964aa2638c5e1fb1a8c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63391Mat
+    second: {fileID: 2100000, guid: 9e3502acb822ae6479bfd8b22fb0e59b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63392Mat
+    second: {fileID: 2100000, guid: 496740d0e3324484cb89cef7e22f2413, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63393Mat
+    second: {fileID: 2100000, guid: 002be98d5f5b56c4eae970ab66845826, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63394Mat
+    second: {fileID: 2100000, guid: bcb3c2bd2350a8949b506c9edaab6052, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63395Mat
+    second: {fileID: 2100000, guid: 889885101ffa1cd4ba144a862b1bb53c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63396Mat
+    second: {fileID: 2100000, guid: c54f6459764056a4294c475fdcf7bf96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63397Mat
+    second: {fileID: 2100000, guid: c671386757333794a9ec6dce6d229068, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63398Mat
+    second: {fileID: 2100000, guid: 7f900a348731d1c4e8f96eb5fa64b179, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63399Mat
+    second: {fileID: 2100000, guid: d93b523e9b47a9d4d9279420690a6607, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63400Mat
+    second: {fileID: 2100000, guid: 05b0e2b1e9f4cfa4eb0d110229404ce1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63401Mat
+    second: {fileID: 2100000, guid: b68a6bc915edd4648a1df74064770cb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63402Mat
+    second: {fileID: 2100000, guid: f3eb39c155db6fe4f87e78555a6c11bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63403Mat
+    second: {fileID: 2100000, guid: f1831375a5268bf4fa0f78047cc40361, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63404Mat
+    second: {fileID: 2100000, guid: c15fd54ab7bffd64b8a5b96812fee7dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63405Mat
+    second: {fileID: 2100000, guid: ce9017e41b924e448907780f86d88e7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63406Mat
+    second: {fileID: 2100000, guid: 2bb691e5da02e7940add5710dc92676b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63407Mat
+    second: {fileID: 2100000, guid: e099d4c0cbdb38142b0036b8bd45cecf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63408Mat
+    second: {fileID: 2100000, guid: 7b725283b9733d94bb702b916265bde0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63409Mat
+    second: {fileID: 2100000, guid: 0e786c9378cd597488b3cd03d742d098, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63410Mat
+    second: {fileID: 2100000, guid: 8f6533ea94f76f64db258e6f465441f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63411Mat
+    second: {fileID: 2100000, guid: 3c8cafd9d612503488fed03d4a78d56b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63412Mat
+    second: {fileID: 2100000, guid: 9dddda4ba051c80408759d3bc7d02ac7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63413Mat
+    second: {fileID: 2100000, guid: 45bf6420a97e2f6448b5d145ac8640b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63414Mat
+    second: {fileID: 2100000, guid: 1a99f17c260ca7b448dff5e29b132379, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63415Mat
+    second: {fileID: 2100000, guid: ca590378c547eb64e95c5399dc0e8670, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63416Mat
+    second: {fileID: 2100000, guid: 0a158d9d0355a5f41865bb2e16f47f7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63417Mat
+    second: {fileID: 2100000, guid: f71cdb0b3d604fe4882596ca3e4b2c6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63418Mat
+    second: {fileID: 2100000, guid: 8381b387d53c2e640bd67dcc199dabfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63419Mat
+    second: {fileID: 2100000, guid: 4b31387120c8f4748b291f1fe7316a91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63420Mat
+    second: {fileID: 2100000, guid: f58e52f8f63c66d4abbbbd2294ca5f18, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63421Mat
+    second: {fileID: 2100000, guid: 9307f820bbd33464d8a6e8a6bdff6184, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63422Mat
+    second: {fileID: 2100000, guid: 61ec4d8fb8cf80b45999bd15f4d6b720, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63423Mat
+    second: {fileID: 2100000, guid: af816dbe2ecbfca43a195e8bf5e91b72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63424Mat
+    second: {fileID: 2100000, guid: fbb7e4ce45cd90b4b9cde61745758242, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63425Mat
+    second: {fileID: 2100000, guid: d98a4165f5f3b0f4485f44cfecf43905, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63426Mat
+    second: {fileID: 2100000, guid: b12dc99d36c839745979ee056939b559, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63427Mat
+    second: {fileID: 2100000, guid: 353bf5f5c2e387e49bb669f8378df3cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hueso_Group63428Mat
+    second: {fileID: 2100000, guid: ef423d7c6a5e16f479fd1a98821de425, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.5
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.5
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

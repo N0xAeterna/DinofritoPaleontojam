@@ -8,7 +8,7 @@ public class ButtonManager : MonoBehaviour
     public static ButtonManager instancia;
     [SerializeField]private List<GameObject> DesactiveInStart;
     public List<GameObject> ActiveOnePerClick;
- 
+    public List<GameObject> ListBones;
 
     public List<GameObject> DesactiveInStart1 { get => DesactiveInStart; set => DesactiveInStart = value; }
 
@@ -24,6 +24,10 @@ public class ButtonManager : MonoBehaviour
         foreach (GameObject Desactive in DesactiveInStart)
         {
             Desactive.SetActive(false);
+        }
+        foreach (GameObject DesactiveB in ListBones)
+        {
+            DesactiveB.SetActive(false);
         }
     }
 
