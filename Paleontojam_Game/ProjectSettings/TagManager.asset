@@ -11,6 +11,7 @@ TagManager:
   - Obstacles
   - _LoseGame
   - _WinGame
+  - Bone
   layers:
   - Default
   - TransparentFX
