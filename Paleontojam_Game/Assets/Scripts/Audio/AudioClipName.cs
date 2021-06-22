@@ -3,5 +3,16 @@
 /// </summary>
 public enum AudioClipName
 {
-    Prueba
+    MenuBack,
+    MenuConfirm,
+    MenuSoundtrack,
+    MinigameOneSoundtrack,
+    MinigameTwoSoundtrack,
+    MinigameThreeSoundtrack,
+    MusicalSFXOne,
+    MusicalSFXTwo,
+    MusicalSFXThree,
+    MusicalSFXCropolito,
+    MusicalSFXFail,
+    MusicalSFXGo
 }
