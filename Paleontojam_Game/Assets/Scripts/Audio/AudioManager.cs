@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
+using UnityEngine.Audio;
 
 /// <summary>
 /// Para reproducir sonidos usando solamente un nombre
@@ -11,8 +11,10 @@ public static class AudioManager
 
     // soporte para audioclips y sus directorios
     static Dictionary<AudioClipName, AudioClip> audioClips;
+    static AudioSource duckingSource;
     static AudioSource audioSource;
     static List<AudioSource> soundtrackAudioSources;
+    static AudioMixer audioMixer;
 
     // soporte de estado
     static bool inicializado = false;
@@ -38,13 +40,19 @@ public static class AudioManager
     /// Asigna la fuente principal de audio y agrega los clips de audio
     /// </summary>
     /// <param name="source">Fuente de audio principal</param>
-    public static void Inicializar(AudioSource source)
+    public static void Inicializar(AudioSource source, AudioSource duckedSource, AudioMixer mixer)
     {
         inicializado = true;
         audioSource = source;
+        duckingSource = duckedSource;
 
         audioClips = new Dictionary<AudioClipName, AudioClip>();
         soundtrackAudioSources = new List<AudioSource>();
+
+        audioMixer = mixer;
+
+        audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[1];
+        duckingSource.outputAudioMixerGroup = mixer.FindMatchingGroups("DuckSFX")[0];
 
         // aqui van a agregar los clips de audio usando esta sintaxis
         audioClips.Add(AudioClipName.MenuBack, Resources.Load<AudioClip>("Sounds/MAIN_MENU_OCK_BACK"));
@@ -65,9 +73,12 @@ public static class AudioManager
     /// Reproduce un clip de audio
     /// </summary>
     /// <param name="nombre">Nombre del clip a reproducir</param>
-    public static void PlayOneShot(AudioClipName nombre)
+    public static void PlayOneShot(AudioClipName nombre, bool ducked)
     {
-        audioSource.PlayOneShot(audioClips[nombre]);
+        if (ducked)
+            duckingSource.PlayOneShot(audioClips[nombre]);
+        else
+            audioSource.PlayOneShot(audioClips[nombre]);
     }
 
     public static void PlaySoundtrack(AudioClipName nombre)
@@ -137,11 +148,12 @@ public static class AudioManager
         soundtrackAudioSources[soundtrackAudioSources.Count - 1].playOnAwake = false;
         soundtrackAudioSources[soundtrackAudioSources.Count - 1].Stop();
 
+        soundtrackAudioSources[soundtrackAudioSources.Count - 1].outputAudioMixerGroup = audioMixer.FindMatchingGroups("Soundtrack")[0];
+
         soundtrackAudioSources[soundtrackAudioSources.Count - 1].clip = audioClips[nombre];
         soundtrackAudioSources[soundtrackAudioSources.Count - 1].loop = true;
 
         soundtrackAudioSources[soundtrackAudioSources.Count - 1].Play();
     }
-
     #endregion
 }
