@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class _SoundTest : MonoBehaviour
 {
@@ -15,22 +16,22 @@ public class _SoundTest : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
-            AudioManager.PlayOneShot(AudioClipName.MenuBack);
+            AudioManager.PlayOneShot(AudioClipName.MenuBack, false);
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            AudioManager.PlayOneShot(AudioClipName.MenuConfirm);
+            AudioManager.PlayOneShot(AudioClipName.MenuConfirm, false);
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            AudioManager.PlayOneShot(AudioClipName.MusicalSFXFail);
+            AudioManager.PlayOneShot(AudioClipName.MusicalSFXFail, false);
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            AudioManager.PlayOneShot(AudioClipName.MusicalSFXGo);
+            AudioManager.PlayOneShot(AudioClipName.MusicalSFXGo, true);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -79,27 +80,32 @@ public class _SoundTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            AudioManager.PlayOneShot(AudioClipName.MusicalSFXCropolito);
+            AudioManager.PlayOneShot(AudioClipName.MusicalSFXCropolito, true);
         }
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            AudioManager.PlayOneShot(AudioClipName.MusicalSFXOne);
+            AudioManager.PlayOneShot(AudioClipName.MusicalSFXOne, true);
         }
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            AudioManager.PlayOneShot(AudioClipName.MusicalSFXTwo);
+            AudioManager.PlayOneShot(AudioClipName.MusicalSFXTwo, true);
         }
 
         if (Input.GetKeyDown(KeyCode.U))
         {
-            AudioManager.PlayOneShot(AudioClipName.MusicalSFXThree);
+            AudioManager.PlayOneShot(AudioClipName.MusicalSFXThree, true);
         }
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
             AudioManager.StopAllSoundtracks();
+        }
+
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            SceneManager.LoadScene("ExcavationSite");
         }
     }
 }

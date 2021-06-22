@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigame3.unity
     guid: 3934a76ca3e6d254aa860601785e8ef2
+  - enabled: 1
+    path: Assets/Scenes/Testing/SoundTest.unity
+    guid: 81b4c4b1fb990da478da38994fc32843
+  - enabled: 1
+    path: Assets/Scenes/NewEnvironment/ExcavationSite.unity
+    guid: 7786a7db24a57ed4480948b4f338aa47
   m_configObjects: {}
