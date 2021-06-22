@@ -25,4 +25,9 @@ public class GameAudioSource : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void DestroyAudioSource(AudioSource source)
+    {
+        Destroy(source);
+    }
 }

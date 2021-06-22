@@ -12,6 +12,7 @@ public static class AudioManager
     // soporte para audioclips y sus directorios
     static Dictionary<AudioClipName, AudioClip> audioClips;
     static AudioSource audioSource;
+    static List<AudioSource> soundtrackAudioSources;
 
     // soporte de estado
     static bool inicializado = false;
@@ -43,9 +44,21 @@ public static class AudioManager
         audioSource = source;
 
         audioClips = new Dictionary<AudioClipName, AudioClip>();
+        soundtrackAudioSources = new List<AudioSource>();
 
         // aqui van a agregar los clips de audio usando esta sintaxis
-        audioClips.Add(AudioClipName.Prueba, Resources.Load<AudioClip>("Sounds/Prueba"));
+        audioClips.Add(AudioClipName.MenuBack, Resources.Load<AudioClip>("Sounds/MAIN_MENU_OCK_BACK"));
+        audioClips.Add(AudioClipName.MenuConfirm, Resources.Load<AudioClip>("Sounds/SFX_CONFIRM_MENU-02"));
+        audioClips.Add(AudioClipName.MenuSoundtrack, Resources.Load<AudioClip>("Sounds/MAIN_MENU_OCK_MUSIC_LOOP"));
+        audioClips.Add(AudioClipName.MinigameOneSoundtrack, Resources.Load<AudioClip>("Sounds/MINI_GAME_1_OCK_MUSIC_LOOP"));
+        audioClips.Add(AudioClipName.MinigameTwoSoundtrack, Resources.Load<AudioClip>("Sounds/MINI_GAME_2_OCK_MUSIC_LOOP"));
+        audioClips.Add(AudioClipName.MinigameThreeSoundtrack, Resources.Load<AudioClip>("Sounds/MINI_GAME_3_OCK_MUSIC_LOOP"));
+        audioClips.Add(AudioClipName.MusicalSFXOne, Resources.Load<AudioClip>("Sounds/MUSICAL_SFX_OCK_1st"));
+        audioClips.Add(AudioClipName.MusicalSFXTwo, Resources.Load<AudioClip>("Sounds/MUSICAL_SFX_OCK_2nd"));
+        audioClips.Add(AudioClipName.MusicalSFXThree, Resources.Load<AudioClip>("Sounds/MUSICAL_SFX_OCK_3rd"));
+        audioClips.Add(AudioClipName.MusicalSFXCropolito, Resources.Load<AudioClip>("Sounds/MUSICAL_SFX_OCK_CROPOLITO"));
+        audioClips.Add(AudioClipName.MusicalSFXFail, Resources.Load<AudioClip>("Sounds/MUSICAL_SFX_OCK_FAIL"));
+        audioClips.Add(AudioClipName.MusicalSFXGo, Resources.Load<AudioClip>("Sounds/MUSICAL_SFX_OCK-GO"));
     }
 
     /// <summary>
@@ -55,6 +68,79 @@ public static class AudioManager
     public static void PlayOneShot(AudioClipName nombre)
     {
         audioSource.PlayOneShot(audioClips[nombre]);
+    }
+
+    public static void PlaySoundtrack(AudioClipName nombre)
+    {
+        bool playing = false;
+        if(audioSource != null)
+        {
+            if(soundtrackAudioSources.Count > 0)
+            {
+                foreach(AudioSource soundtrackAudioSource in soundtrackAudioSources)
+                {
+                    if(!playing)
+                    {
+                        if(soundtrackAudioSource.clip == audioClips[nombre])
+                        {
+                            if (!soundtrackAudioSource.isPlaying)
+                                soundtrackAudioSource.Play();
+
+                            playing = true;
+                        }
+                        else if(!soundtrackAudioSource.isPlaying)
+                        {
+                            soundtrackAudioSource.clip = audioClips[nombre];
+                            soundtrackAudioSource.loop = true;
+                            soundtrackAudioSource.Play();
+                            playing = true;
+                        }
+                    }               
+                }
+
+                if (!playing)
+                    AddSoundtrackAudioSourceAndPlay(nombre);
+            }
+            else
+            {
+                AddSoundtrackAudioSourceAndPlay(nombre);
+            }
+        }
+    }
+
+    public static void StopSoundtrack(AudioClipName nombre)
+    {
+        foreach(AudioSource soundtrackAudioSource in soundtrackAudioSources)
+        {
+            if(soundtrackAudioSource == audioClips[nombre])
+            {
+                soundtrackAudioSource.Stop();
+            }
+        }
+    }
+
+    public static void StopAllSoundtracks()
+    {
+        foreach(AudioSource soundTrackAudioSource in soundtrackAudioSources)
+        {
+            soundTrackAudioSource.Stop();
+            soundTrackAudioSource.gameObject.GetComponent<GameAudioSource>().DestroyAudioSource(soundTrackAudioSource);
+        }
+
+        soundtrackAudioSources.RemoveRange(0, soundtrackAudioSources.Count);
+    }
+
+    static void AddSoundtrackAudioSourceAndPlay(AudioClipName nombre)
+    {
+        soundtrackAudioSources.Add(audioSource.gameObject.AddComponent<AudioSource>());
+
+        soundtrackAudioSources[soundtrackAudioSources.Count - 1].playOnAwake = false;
+        soundtrackAudioSources[soundtrackAudioSources.Count - 1].Stop();
+
+        soundtrackAudioSources[soundtrackAudioSources.Count - 1].clip = audioClips[nombre];
+        soundtrackAudioSources[soundtrackAudioSources.Count - 1].loop = true;
+
+        soundtrackAudioSources[soundtrackAudioSources.Count - 1].Play();
     }
 
     #endregion
