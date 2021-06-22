@@ -58,7 +58,7 @@ public class ctrl_game : MonoBehaviour {
                         //si podemos pulsar
                         pulsar = false;
                         point_moment = false;
-                        print (p_actual.ToString ());
+                       // print (p_actual.ToString ());
                         if (prueba) {
                             img_bien.SetActive (true);
                             img_mal.SetActive (false);
@@ -71,7 +71,7 @@ public class ctrl_game : MonoBehaviour {
                         //si no podemos pulsar
                         p_actual -= 1;
                         t_actual.text = p_actual.ToString ();
-                        print (p_actual.ToString ());
+                        //print (p_actual.ToString ());
                         if (prueba) {
                             img_bien.SetActive (false);
                             img_mal.SetActive (true);
@@ -249,7 +249,7 @@ public class ctrl_game : MonoBehaviour {
                 ima_bien_[p_t_actual].SetActive (false);
                 ima_mal_[p_t_actual].SetActive (true);
             }
-            print (p_actual.ToString ());
+          //  print (p_actual.ToString ());
             Invoke ("mal_", 0.3f);
         }
     }
@@ -271,9 +271,13 @@ public class ctrl_game : MonoBehaviour {
 
     void mal_ () {
         if (prueba) {
+            SaveAndLoad.instancia.GuardarNumErrores(SaveAndLoad.instancia.CargarNumErrores().NumOfLose + 1);
+            print(SaveAndLoad.instancia.CargarNumErrores().NumOfLose);
             img_bien.SetActive (false);
             img_mal.SetActive (false);
         } else {
+            SaveAndLoad.instancia.GuardarNumErrores(SaveAndLoad.instancia.CargarNumErrores().NumOfLose + 1);
+            print(SaveAndLoad.instancia.CargarNumErrores().NumOfLose);
             ima_bien_[p_t_actual].SetActive (false);
             ima_mal_[p_t_actual].SetActive (false);
         }

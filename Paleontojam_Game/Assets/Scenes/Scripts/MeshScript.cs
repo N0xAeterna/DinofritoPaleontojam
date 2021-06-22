@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,13 +22,19 @@ public class MeshScript : MonoBehaviour
     private int NumHuesosTuWin;
     private bool oneTime;
     public DialogoTrigger dialogoTrigger;
-  
+    private bool CanADD;
     private void Start()
     {
-
+        CanADD = true;
+       string path = Application.dataPath + "/editable/Errors.json";
         meshc = GetComponent<MeshCollider>();
         ButtonManager.instancia.DesactiveInStart1[2].SetActive(true);
         dialogoTrigger.IniciarDialogo();
+        if (!File.Exists(path))
+        {
+            SaveAndLoad.instancia.GuardarNumErrores(0);
+        }
+    
     }
     void Update()
     {
@@ -40,7 +47,10 @@ public class MeshScript : MonoBehaviour
         }
         if (NumHuesosTuWin > huesos.Count - 1)
         {
-            ButtonManager.instancia.DesactiveInStart1[1].SetActive(true);
+          
+                ButtonManager.instancia.DesactiveInStart1[1].SetActive(true);
+          
+          
         }
         mesh = GetComponent<MeshFilter>().mesh;
         Vector3[] vertices = mesh.vertices;
@@ -117,16 +127,22 @@ public class MeshScript : MonoBehaviour
                     switch (ToolsScript.instancia.Herramienta1)
                     {
                         case 0.03f:
-                            if (CountToDestroyObject > 0.1)
+                            if (CountToDestroyObject > 0.1&&CanADD)
                             {
                                 ButtonManager.instancia.DesactiveInStart1[0].SetActive(true);
+                                SaveAndLoad.instancia.GuardarNumErrores(SaveAndLoad.instancia.CargarNumErrores().NumOfLose+1);
+                                print(SaveAndLoad.instancia.CargarNumErrores().NumOfLose);
+                                CanADD = false;
                                 CountToDestroyObject = 0;
 
                             }; break;
                         case 0.01f:
-                            if (CountToDestroyObject > 1)
+                            if (CountToDestroyObject > 1&& CanADD)
                             {
                                 ButtonManager.instancia.DesactiveInStart1[0].SetActive(true);
+                                SaveAndLoad.instancia.GuardarNumErrores(SaveAndLoad.instancia.CargarNumErrores().NumOfLose + 1);
+                                print(SaveAndLoad.instancia.CargarNumErrores().NumOfLose);
+                                CanADD = false;
                                 CountToDestroyObject = 0;
 
                             }; break;
