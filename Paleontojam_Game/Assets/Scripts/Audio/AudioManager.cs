@@ -11,10 +11,16 @@ public static class AudioManager
 
     // soporte para audioclips y sus directorios
     static Dictionary<AudioClipName, AudioClip> audioClips;
-    static AudioSource duckingSource;
+
+    // soporte de sfx
     static AudioSource audioSource;
-    static List<AudioSource> soundtrackAudioSources;
+    
+    // soporte de ducking sfx
+    static AudioSource duckingSource;
     static AudioMixer audioMixer;
+
+    // soporte de soundtracks
+    static List<AudioSource> soundtrackAudioSources;
 
     // soporte de estado
     static bool inicializado = false;
@@ -70,9 +76,10 @@ public static class AudioManager
     }
 
     /// <summary>
-    /// Reproduce un clip de audio
+    /// Reproduce un clip de audio en el bus SFX (sound effect), en caso de que ducked sea true, lo reproduce en DuckSFX
     /// </summary>
-    /// <param name="nombre">Nombre del clip a reproducir</param>
+    /// <param name="nombre">Nombre de pista</param>
+    /// <param name="ducked">Ducking activado o no</param>
     public static void PlayOneShot(AudioClipName nombre, bool ducked)
     {
         if (ducked)
@@ -81,6 +88,10 @@ public static class AudioManager
             audioSource.PlayOneShot(audioClips[nombre]);
     }
 
+    /// <summary>
+    /// Reproduce una pista en loop con su propio AudioSource, en caso de haber un AudioSource sin usar en la coleccion, lo utiliza en lugar de crear uno nuevo
+    /// </summary>
+    /// <param name="nombre">Nombre de la pista</param>
     public static void PlaySoundtrack(AudioClipName nombre)
     {
         bool playing = false;
@@ -119,6 +130,10 @@ public static class AudioManager
         }
     }
 
+    /// <summary>
+    /// Detiene una pista especifica sin afectar a las demas soundtracks actualmente reproduciendose
+    /// </summary>
+    /// <param name="nombre">Nombre de la pista</param>
     public static void StopSoundtrack(AudioClipName nombre)
     {
         foreach(AudioSource soundtrackAudioSource in soundtrackAudioSources)
@@ -130,6 +145,10 @@ public static class AudioManager
         }
     }
 
+    /// <summary>
+    /// Detiene todas las pistas de soundtracks y elimina los AudioSource para no tener
+    /// AudioSource innecesarios
+    /// </summary>
     public static void StopAllSoundtracks()
     {
         foreach(AudioSource soundTrackAudioSource in soundtrackAudioSources)
@@ -141,6 +160,10 @@ public static class AudioManager
         soundtrackAudioSources.RemoveRange(0, soundtrackAudioSources.Count);
     }
 
+    /// <summary>
+    /// Agrega un AudioSource de soundtrack y reproduce el soundtrack, reproduce en el grupo de mixer Soundtrack
+    /// </summary>
+    /// <param name="nombre">Nombre de la pista</param>
     static void AddSoundtrackAudioSourceAndPlay(AudioClipName nombre)
     {
         soundtrackAudioSources.Add(audioSource.gameObject.AddComponent<AudioSource>());
