@@ -22,7 +22,7 @@ public class AudioStart : MonoBehaviour
   
     public void ClickConfirmar()
     {
-        AudioManager.PlayOneShot(AudioClipName.MenuConfirm);
+        AudioManager.PlayOneShot(AudioClipName.MenuConfirm,false);
     }
 
    
