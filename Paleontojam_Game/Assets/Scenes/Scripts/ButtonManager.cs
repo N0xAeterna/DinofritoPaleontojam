@@ -9,7 +9,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField]private List<GameObject> DesactiveInStart;
     public List<GameObject> ActiveOnePerClick;
     public List<GameObject> ListBones;
-
+    private bool ActiveDesactiveB;
     public List<GameObject> DesactiveInStart1 { get => DesactiveInStart; set => DesactiveInStart = value; }
 
     private void Awake()
@@ -54,5 +54,10 @@ public class ButtonManager : MonoBehaviour
             }
         }
        
+    }
+    public void ActiveDesactive(GameObject Canvas)
+    {
+        ActiveDesactiveB = !ActiveDesactiveB;
+        Canvas.SetActive(ActiveDesactiveB);
     }
 }

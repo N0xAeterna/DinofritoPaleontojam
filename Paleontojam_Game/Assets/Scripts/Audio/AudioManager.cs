@@ -107,6 +107,7 @@ public static class AudioManager
                         {
                             if (!soundtrackAudioSource.isPlaying)
                                 soundtrackAudioSource.Play();
+                          
 
                             playing = true;
                         }
