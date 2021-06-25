@@ -31,9 +31,16 @@ public class ActiveModels : MonoBehaviour
                 SaveAndLoad.instancia.GuardarNumErrores(0);
                 OneTIme = true;
             }
-            else
+            else if (SaveAndLoad.instancia.CargarNumErrores().NumOfLose < 15)
             {
                 ButtonManager.instancia.DesactiveInStart1[3].SetActive(true);
+                print("1");
+                SaveAndLoad.instancia.GuardarNumErrores(0);
+                OneTIme = true;
+            }
+            else
+            {
+                ButtonManager.instancia.DesactiveInStart1[4].SetActive(true);
                 print("2");
                 SaveAndLoad.instancia.GuardarNumErrores(0);
                 OneTIme = true;

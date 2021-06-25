@@ -13,12 +13,12 @@ public class CreateMesh : MonoBehaviour
     [SerializeField]private int Zsize = 20;
     void Start()
     {
-        mesh = new Mesh();
+      
         meshC = GetComponent<MeshCollider>();
         GetComponent<MeshFilter>().mesh=mesh;
-        CreateShape();
+      /*  CreateShape();
         Updatemesh();
-        meshRecalculateNormals();
+        meshRecalculateNormals();*/
     }
 
     // Update is called once per frame
@@ -36,8 +36,8 @@ public class CreateMesh : MonoBehaviour
             {
           
                
-                    float y = Mathf.PerlinNoise(x * .5f, z * .3f) * 2f;
-             vertices[i]= (PerlingNoiseTerrain)? vertices[i] = new Vector3(x, y, z):  vertices[i] = new Vector3(x, 1.5f, z);
+                  //  float y = Mathf.PerlinNoise(x * .5f, z * .3f) * 2f;//Para crear el PerlinNoise
+             vertices[i]= (PerlingNoiseTerrain)? vertices[i] = new Vector3(x, 1.5f, z):  vertices[i] = new Vector3(x, 1.5f, z);
 
 
                 i++;
