@@ -1495,7 +1495,7 @@ MonoBehaviour:
   layermask:
     serializedVersion: 2
     m_Bits: 256
-  colliderCopy: {fileID: 1640391361}
+  colliderCopy: {fileID: 0}
   rocks: {fileID: 1036108644}
   excavatingSpeed: 0.3
 --- !u!1 &745038952
@@ -8107,7 +8107,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1640391359}
   - component: {fileID: 1640391358}
-  - component: {fileID: 1640391357}
   - component: {fileID: 1640391360}
   - component: {fileID: 1640391362}
   - component: {fileID: 1640391361}
@@ -8118,21 +8117,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1640391357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640391356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ed9becf2720e6445a9f6b922ef956b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PerlingNoiseTerrain: 1
-  Xsize: 16
-  Zsize: 16
 --- !u!33 &1640391358
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8208,7 +8192,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: -1
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &1640391362
 MonoBehaviour:
