@@ -19,19 +19,17 @@ public class IndicatorFollow : MonoBehaviour
     //Aca todo las variables que agregue para que pase lo que pasa en la escena 1 :u
     [SerializeField] private List<GameObject> huesos;
     [SerializeField] private Mesh mesh;
-    private float DistanciaEntreHuesos;
+  
     private int getid;
-    private int NumHuesosTuWin;
-    private bool oneTime;
-    private float CountToDestroyObject;
+  
 
     public GameObject objetivo;
-    private bool TomarObjeto;
-    private bool CanADD;
-    Vector3[] vertices;
+    private int count;
     Ray rayToCameraPos;
+    private bool oneTime;
     void Start()
     {
+        count = 0;
         excavator = gameObject.GetComponent<MeshExcavator>();
         cam = Camera.main;
     }
@@ -39,6 +37,11 @@ public class IndicatorFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (count >= 4)
+        {
+            SaveAndLoad.instancia.GuardarNumErrores(SaveAndLoad.instancia.CargarNumErrores().NumOfLose + 1);
+            ButtonManager.instancia.DesactiveInStart1[0].SetActive(true);
+        }
         CursorToWorldPosition();
     }
 
@@ -76,34 +79,35 @@ public class IndicatorFollow : MonoBehaviour
         }
 
         Vector3[] vertices = mesh.vertices;
-
+        if (oneTime)
+        {
+            count += 1;
+            print(count);
+            oneTime = false;
+        }
         if (TouchElemengt)
         {
-          //  print("E tocado un hueso");
+            print("E tocado un hueso");
             if (!ToolsScript.instancia.CanGive)
             {
                 for (int i = 0; i < vertices.Length; i++)
                 {
-                    float distancia = Vector3.Distance(huesos[getid].transform.position, transform.TransformPoint(vertices[i]));
+                    float distancia = Vector3.Distance(huesos[getid].transform.position,(vertices[i]));//aca detecta distancia entre lso huesos
 
-                    if (distancia < 3f)
+                    if (distancia < 1f)
                     {
-                        TomarObjeto = true;
-                        print("llego");
+                        if (Input.GetKeyDown(KeyCode.Mouse0))
+                        {
+                            oneTime = true;// aca si toca el hueso cuando 
+                        }
+                    
                     }
                 }
 
 
 
             }
-            else
-            {
-
-                ButtonManager.instancia.DesactiveInStart1[0].SetActive(true);
-                SaveAndLoad.instancia.GuardarNumErrores(SaveAndLoad.instancia.CargarNumErrores().NumOfLose + 1);
-                print(SaveAndLoad.instancia.CargarNumErrores().NumOfLose);
-
-            }
+         
 
         }
 
@@ -114,12 +118,7 @@ public class IndicatorFollow : MonoBehaviour
     {
         return i;
     }
-    IEnumerator getHueso()
-    {
-        oneTime = true;
-        yield return new WaitForSeconds(1);
-        oneTime = false;
-    }
+   
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position);
