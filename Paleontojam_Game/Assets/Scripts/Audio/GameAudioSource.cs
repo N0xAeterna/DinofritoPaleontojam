@@ -10,7 +10,7 @@ public class GameAudioSource : MonoBehaviour
     AudioSource source;
     AudioSource ducking;
     [SerializeField]
-    AudioMixer mixer;
+    AudioMixer mixer = null;
 
     /// <summary>
     /// Inicializa el AudioManager si no se ha iniciado aun, se destruye si ya
