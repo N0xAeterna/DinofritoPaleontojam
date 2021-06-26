@@ -21,7 +21,6 @@ public class MeshScript : MonoBehaviour
     private int getid;
     private int NumHuesosTuWin;
     private bool oneTime;
-    public DialogoTrigger dialogoTrigger;
     private bool CanADD;
     private void Start()
     {
@@ -29,7 +28,6 @@ public class MeshScript : MonoBehaviour
        string path = Application.dataPath + "/editable/Errors.json";
         meshc = GetComponent<MeshCollider>();
         ButtonManager.instancia.DesactiveInStart1[2].SetActive(true);
-        dialogoTrigger.IniciarDialogo();
         if (!File.Exists(path))
         {
             SaveAndLoad.instancia.GuardarNumErrores(0);

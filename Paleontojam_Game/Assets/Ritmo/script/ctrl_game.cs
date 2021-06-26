@@ -61,6 +61,8 @@ public class ctrl_game : MonoBehaviour {
                         if (prueba) {
                             img_bien.SetActive (true);
                             img_mal.SetActive (false);
+
+                            AudioManager.PlayOneShot(AudioClipName.MusicalSFXOne, false);
                         } else {
                             //ima_bochon_
                         }
@@ -73,6 +75,8 @@ public class ctrl_game : MonoBehaviour {
                         if (prueba) {
                             img_bien.SetActive (false);
                             img_mal.SetActive (true);
+
+                            AudioManager.PlayOneShot(AudioClipName.MusicalSFXFail, false);
                         } else {
                             //ima_bochon_
                         }
@@ -245,6 +249,8 @@ public class ctrl_game : MonoBehaviour {
             if (prueba) {
                 img_bien.SetActive (false);
                 img_mal.SetActive (true);
+
+                AudioManager.PlayOneShot(AudioClipName.MusicalSFXFail, false);
             } else {
                 //ima_bochon_
             }
@@ -285,11 +291,14 @@ public class ctrl_game : MonoBehaviour {
     public void finalizar_juego () {
         if (p_actual < (p_total / 2)) {
             //hemos perdido
+            
             print ("perdiste");
         } else {
             //hemos ganado
             print ("has ganado");
         }
+
+        CanvasAnimation.Instancia.AnimarCanvas(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }
