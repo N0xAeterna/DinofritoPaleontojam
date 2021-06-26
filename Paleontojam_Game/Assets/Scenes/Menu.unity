@@ -354,7 +354,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 4a52c9cc7d42e1d4baa9561a0a7a5f71, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: ce9b0bb172a95614faf39d34a127b23d, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -485,7 +485,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: deac43fc4b1bfb343bf7db40232c9882, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: fe40cc1949bd2d14bad86109e246e25d, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -616,7 +616,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 2d7dcf2f1decb574fb3a5fda1eb148ac, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: c94f34732162ab947ac255d13f891ca2, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -747,7 +747,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 8dbb41eef9e2b544fb0a63da13e82348, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: e97a397ab7dd0f14ebfd40368452a667, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -878,7 +878,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: f843ca5baf8c5d74e8e86298a4191919, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: e7dd0ea06baf31c4b82f6bf1d46024dc, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1009,7 +1009,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 08343ba80d3bc7043a45d1efbba10124, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: e6ab692cf14c6da419a760712771f373, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1232,7 +1232,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 06a8571f289be1a4484eae4edfb868ed, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: 650708d5233dcdd44af8c102ff8b8ac6, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1363,7 +1363,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 93d08e3593ce06e4c877658f92456190, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: 4d11e0e844ab8bd41a00798b07ab6b67, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1585,7 +1585,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 62fb9f0b21c19c847a72ff09f000ebca, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: a712fd86b7078874e88fb731b6d638d4, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2042,7 +2042,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 66, y: -334}
+  m_AnchoredPosition: {x: 50, y: -334}
   m_SizeDelta: {x: 240.151, y: 212.66995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122126812
@@ -2427,7 +2427,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 149dee94144a9904485b187753b5c9c3, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: e78a7be6d9668e449a3373d90e1a8d7e, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2558,7 +2558,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 21300000, guid: 5ab155f7dd6aa39418deba3bcb7031ca, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2689,7 +2689,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 7953873e246010b4ab606968cc18f4db, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: 461e1239302da78428babb698d2042e6, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2820,7 +2820,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 4062dfe8bc3284948ad137d22f34b9c5, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: c73d5f124501c6349b650cd732be683d, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3082,7 +3082,7 @@ MonoBehaviour:
         m_MethodName: ActivarDefinicion
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: a6a3b95ccf6da054d9f5f321235ba0aa, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: 742052e7e95928341a1c3c75ff366630, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3368,7 +3368,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 51.1, y: -78.3}
+  m_AnchoredPosition: {x: 50, y: -78.3}
   m_SizeDelta: {x: 240.151, y: 212.66995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2091553198
