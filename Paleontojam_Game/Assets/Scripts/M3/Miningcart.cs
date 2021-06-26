@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Mining cart behavior
@@ -6,13 +7,15 @@
 public class Miningcart : MonoBehaviour
 {
     // accelaration support
-    const float Acceleration = 40f;
-    const float MaxVelocity = 50f;
+    const float Acceleration = 20f;
+    const float MaxVelocity = 40f;
     float accelerationInput;
 
     // speed clamping support
     bool needsToAccelerateForward = false;
     bool needsToAccelerateReverse = false;
+
+    Temporizador tiempoParaCambiarDeEscena;
 
     // jump support
     const float JumpForce = 1000f;
@@ -26,6 +29,8 @@ public class Miningcart : MonoBehaviour
 
     // for efficiency
     Rigidbody rb;
+
+    bool collHandled = false;
     
     /// <summary>
     /// Gets RigidBody Components
@@ -33,6 +38,10 @@ public class Miningcart : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        tiempoParaCambiarDeEscena = gameObject.AddComponent<Temporizador>();
+        tiempoParaCambiarDeEscena.Duracion = 5f;
+
+        AudioManager.PlaySoundtrack(AudioClipName.MinigameThreeSoundtrack);
     }
 
     /// <summary>
@@ -51,10 +60,18 @@ public class Miningcart : MonoBehaviour
             needsToAccelerateReverse = true;
         }
 
-        // updating input
-        jumpInput = Input.GetAxis("JumpMiningcart");
-        accelerationInput = Input.GetAxis("AccelerateMiningcart");
-        horizontalInput = Input.GetAxis("Horizontal");
+        if(tiempoParaCambiarDeEscena.Finalizado)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if(!tiempoParaCambiarDeEscena.Corriendo)
+        {
+            // updating input
+            jumpInput = Input.GetAxis("JumpMiningcart");
+            accelerationInput = Input.GetAxis("AccelerateMiningcart");
+            horizontalInput = Input.GetAxis("Horizontal");
+        }
     }
 
     /// <summary>
@@ -134,10 +151,13 @@ public class Miningcart : MonoBehaviour
             MiningcartCamera.seguir = (MiningcartCamera.seguir) ? false : true;
         }
 
-        if(that.gameObject.tag == "EndRoad")
+        if(that.gameObject.tag == "EndRoad" && !collHandled)
         {
-            // show winning screen
-            Debug.Log("End reached");
+            tiempoParaCambiarDeEscena.Iniciar();
+            CanvasAnimation.Instancia.AnimarCanvas();
+            rb.isKinematic = true;
+
+            collHandled = true;
         }
     }
 }
