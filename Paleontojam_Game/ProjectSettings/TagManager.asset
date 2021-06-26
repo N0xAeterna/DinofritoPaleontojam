@@ -12,6 +12,8 @@ TagManager:
   - _LoseGame
   - _WinGame
   - Bone
+  - FollowSwitch
+  - EndRoad
   layers:
   - Default
   - TransparentFX

@@ -6,8 +6,8 @@
 public class Miningcart : MonoBehaviour
 {
     // accelaration support
-    const float Acceleration = 25f;
-    const float MaxVelocity = 40f;
+    const float Acceleration = 40f;
+    const float MaxVelocity = 50f;
     float accelerationInput;
 
     // speed clamping support
@@ -76,25 +76,25 @@ public class Miningcart : MonoBehaviour
                 rb.AddForce(transform.forward * accelerationInput * Acceleration, ForceMode.Acceleration);
                 needsToAccelerateReverse = false;
             }
-
+            /*
             // handling jumpinput
             if (jumpInput != 0 && !jumpApplied)
             {
                 rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
                 rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
                 jumpApplied = true;
-            }
+            }*/
 
         }
-
+        /*
         if (jumpInput == 0)
-            jumpApplied = false;
-
+            jumpApplied = false;*/
+        /*
         // handling mid air rotation
         if (horizontalInput != 0 && !onGround)
         {
             rb.AddTorque(transform.right * RotationForce * horizontalInput * Time.deltaTime, ForceMode.Impulse);
-        }
+        }*/
     }
 
     private void OnCollisionEnter(Collision other)
@@ -127,21 +127,17 @@ public class Miningcart : MonoBehaviour
         }
     }
 
-    // eliminar despues
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider that)
     {
-        // eliminar despues
-        if (other.transform.tag == "_LoseGame")
+        if(that.gameObject.tag == "FollowSwitch")
         {
-            _GameHandler.Instancia.Mensaje("Te has equivocado de camino, no has podido entregar el fosil");
-            _GameHandler.Instancia.IniciarTemporizador();
+            MiningcartCamera.seguir = (MiningcartCamera.seguir) ? false : true;
         }
 
-        // eliminar despues
-        if (other.transform.tag == "_WinGame")
+        if(that.gameObject.tag == "EndRoad")
         {
-            _GameHandler.Instancia.Mensaje("Has entregado el fosil con exito! felicidades");
-            _GameHandler.Instancia.IniciarTemporizador();
+            // show winning screen
+            Debug.Log("End reached");
         }
     }
 }
