@@ -37,7 +37,6 @@ public class ButtonManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         dialogo.IniciarDialogo();
-        Debug.Log("En Corrutina");
     }
 
    
