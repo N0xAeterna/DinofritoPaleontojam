@@ -3558,63 +3558,6 @@ Transform:
   m_Father: {fileID: 453813722}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1279982728
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4779770788735237468, guid: 06e16dbac4d6ec943ad8fe8ca70883d3, type: 3}
-      propertyPath: m_Name
-      value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779770788735237470, guid: 06e16dbac4d6ec943ad8fe8ca70883d3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.414566
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779770788735237470, guid: 06e16dbac4d6ec943ad8fe8ca70883d3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.171085
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779770788735237470, guid: 06e16dbac4d6ec943ad8fe8ca70883d3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.6322365
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779770788735237470, guid: 06e16dbac4d6ec943ad8fe8ca70883d3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779770788735237470, guid: 06e16dbac4d6ec943ad8fe8ca70883d3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779770788735237470, guid: 06e16dbac4d6ec943ad8fe8ca70883d3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779770788735237470, guid: 06e16dbac4d6ec943ad8fe8ca70883d3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779770788735237470, guid: 06e16dbac4d6ec943ad8fe8ca70883d3, type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779770788735237470, guid: 06e16dbac4d6ec943ad8fe8ca70883d3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779770788735237470, guid: 06e16dbac4d6ec943ad8fe8ca70883d3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779770788735237470, guid: 06e16dbac4d6ec943ad8fe8ca70883d3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 06e16dbac4d6ec943ad8fe8ca70883d3, type: 3}
 --- !u!1 &1323547830
 GameObject:
   m_ObjectHideFlags: 0
@@ -4256,6 +4199,73 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1544426057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1544426059}
+  - component: {fileID: 1544426058}
+  - component: {fileID: 1544426060}
+  m_Layer: 0
+  m_Name: Dialogo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1544426058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544426057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a33ef454a1f194a970592bd027de25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ImagenNPC: {fileID: 2800000, guid: e4ba8aabbd338b84cb6fb2ad4a809cd1, type: 3}
+  dialogo:
+    nombreDePersonaje: Quetzi
+    oraciones:
+    - "\xA1Soy Quetzi, la restauradora! Ahora que excavaste los f\xF3siles, los tenemos
+      que preparar para su transporte al laboratorio. "
+    - "Vas a tener que hacer un boch\xF3n: es una protecci\xF3n de tela y yeso alrededor
+      del f\xF3sil y de la roca. Act\xFAa como el yeso que te har\xEDa el m\xE9dico
+      si te rompieras una pierna."
+    - "\xA1Hacer un boch\xF3n lleva muchos pasos! Haz clic cuando el bot\xF3n rosa
+      pasa por encima del rect\xE1ngulo verde para realizar cada etapa."
+--- !u!4 &1544426059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544426057}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.688618, y: 12.075356, z: 0.38295746}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1544426060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544426057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc3e4d75c3f119408fa55d39bf63dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1575577462
 GameObject:
   m_ObjectHideFlags: 0
