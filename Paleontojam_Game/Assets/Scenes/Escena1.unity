@@ -1021,16 +1021,6 @@ MonoBehaviour:
   - {fileID: 1380850572}
   - {fileID: 2026450654}
   - {fileID: 676442485}
-  ActiveOnePerClick:
-  - {fileID: 1574204301}
-  - {fileID: 1193855260}
-  - {fileID: 2139150153}
-  - {fileID: 341473569}
-  ListBones:
-  - {fileID: 262220684}
-  - {fileID: 1057105011}
-  - {fileID: 745038952}
-  - {fileID: 1195911644}
 --- !u!4 &376265524
 Transform:
   m_ObjectHideFlags: 0
@@ -1466,6 +1456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1acfd82c8740f469e77e6eff8c5730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogoTrigger: {fileID: 0}
 --- !u!114 &701734276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1498,6 +1489,9 @@ MonoBehaviour:
   colliderCopy: {fileID: 0}
   rocks: {fileID: 1036108644}
   excavatingSpeed: 0.3
+  huesos: []
+  mesh: {fileID: 0}
+  objetivo: {fileID: 0}
 --- !u!1 &745038952
 GameObject:
   m_ObjectHideFlags: 0
@@ -8116,7 +8110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &1640391358
 MeshFilter:
   m_ObjectHideFlags: 0
