@@ -291,7 +291,6 @@ public class ctrl_game : MonoBehaviour {
     public void finalizar_juego () {
         if (p_actual < (p_total / 2)) {
             //hemos perdido
-            
             print ("perdiste");
         } else {
             //hemos ganado
