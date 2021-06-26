@@ -11,16 +11,15 @@ public class ctrl_game : MonoBehaviour {
     public List<point> points = new List<point> ();
     public List<obj_point> obj_points_ = new List<obj_point> ();
     public Text t_actual, t_total, t_pista_;
-    public List<GameObject> ima_bien_ = new List<GameObject> ();
-    public List<GameObject> ima_mal_ = new List<GameObject> ();
+    public List<Sprite> ima_bochon_ = new List<Sprite> ();
     public int p_t_actual, p_time_barra, p_actual, p_total, c_obj_point;
     public AudioSource pista;
-    public GameObject obj_point_, img_bien, img_mal;
+    public GameObject obj_point_, img_bien, img_mal, ima_bochon; 
 
     void Start () {
         inicia = false;
         pulsar = true;
-        b_point.position = new Vector3 (4f, 5.5f, 1f);
+        b_point.position = new Vector3 (8f, 5.6f, 1f);
         //Instantiate (obj_point_, b_player.GetComponent<Transform> ().poslition, Quaternion.identity, marco.GetComponent<Transform> ());
         GameObject n_ = Instantiate (obj_point_, b_point.position, Quaternion.identity, marco.GetComponent<Transform> ());
         c_obj_point = 1;
@@ -58,13 +57,12 @@ public class ctrl_game : MonoBehaviour {
                         //si podemos pulsar
                         pulsar = false;
                         point_moment = false;
-                       // print (p_actual.ToString ());
+                        // print (p_actual.ToString ());
                         if (prueba) {
                             img_bien.SetActive (true);
                             img_mal.SetActive (false);
                         } else {
-                            ima_bien_[p_t_actual].SetActive (true);
-                            ima_mal_[p_t_actual].SetActive (false);
+                            //ima_bochon_
                         }
                         //p_time_actual = points[p_time_actual].p_der;
                     } else {
@@ -76,8 +74,7 @@ public class ctrl_game : MonoBehaviour {
                             img_bien.SetActive (false);
                             img_mal.SetActive (true);
                         } else {
-                            ima_bien_[p_t_actual].SetActive (false);
-                            ima_mal_[p_t_actual].SetActive (true);
+                            //ima_bochon_
                         }
                     }
                 }
@@ -93,8 +90,7 @@ public class ctrl_game : MonoBehaviour {
                             img_bien.SetActive (true);
                             img_mal.SetActive (false);
                         } else {
-                            ima_bien_[p_t_actual].SetActive (true);
-                            ima_mal_[p_t_actual].SetActive (false);
+                            //ima_bochon_
                         }
                         inicia = true;
                         pulsar = false;
@@ -143,16 +139,19 @@ public class ctrl_game : MonoBehaviour {
             speed += 0.4f;
             //print (con1_ + "");
             //con1_ = 0;
-            //print (pista.time + "pista");
+            print ("reboteb");
         } else if (b_player.position.x == limit_2) {
             rebote_l = true;
             //cambiamos el limite 
             limit = limit_1;
             colocar_points (limit);
             speed += 0.4f;
+            print ("rebotea");
             //print (con1_ + "");
             //con1_ = 0;
             //print (pista.time + "pista");
+        } else {
+            print ("no");
         }
         if (rebote_l) {
             limit = limit_1;
@@ -161,6 +160,7 @@ public class ctrl_game : MonoBehaviour {
         }
         //movemos
         b_player.position = Vector3.MoveTowards (pos, new Vector3 (limit, pos.y, pos.z), step);
+        print ("p");
     }
 
     public void iniciar_juego () {
@@ -190,7 +190,7 @@ public class ctrl_game : MonoBehaviour {
             //print (((9.21 / speed) + pista.time) + ""); //tengo que sacar 
         //*/
 
-        float limit_pista = (9.21f / speed) + pista.time;
+        float limit_pista = (16f / speed) + pista.time;
         //print (limit_pista + "pista_time");
 
         for (var i = 0; i < 10; i++) {
@@ -246,12 +246,12 @@ public class ctrl_game : MonoBehaviour {
                 img_bien.SetActive (false);
                 img_mal.SetActive (true);
             } else {
-                ima_bien_[p_t_actual].SetActive (false);
-                ima_mal_[p_t_actual].SetActive (true);
+                //ima_bochon_
             }
-          //  print (p_actual.ToString ());
-            Invoke ("mal_", 0.3f);
         }
+        ima_bochon.GetComponent<SpriteRenderer>().sprite = ima_bochon_[p_t_actual];
+        p_t_actual += 1;
+        Invoke ("mal_", 0.3f);
     }
 
     public void hemos_entrado (int _p_) {
@@ -266,20 +266,19 @@ public class ctrl_game : MonoBehaviour {
         point_moment = false;
         inicia = false;
         obj_points_.Clear ();
-        b_point.position = new Vector3 (4f, 5.5f, 1f);
+        b_point.position = new Vector3 (6f, 5.5f, 1f);
     }
 
     void mal_ () {
         if (prueba) {
-            SaveAndLoad.instancia.GuardarNumErrores(SaveAndLoad.instancia.CargarNumErrores().NumOfLose + 1);
-            print(SaveAndLoad.instancia.CargarNumErrores().NumOfLose);
+            //SaveAndLoad.instancia.GuardarNumErrores(SaveAndLoad.instancia.CargarNumErrores().NumOfLose + 1);
+            //print(SaveAndLoad.instancia.CargarNumErrores().NumOfLose);
             img_bien.SetActive (false);
             img_mal.SetActive (false);
         } else {
-            SaveAndLoad.instancia.GuardarNumErrores(SaveAndLoad.instancia.CargarNumErrores().NumOfLose + 1);
-            print(SaveAndLoad.instancia.CargarNumErrores().NumOfLose);
-            ima_bien_[p_t_actual].SetActive (false);
-            ima_mal_[p_t_actual].SetActive (false);
+            //SaveAndLoad.instancia.GuardarNumErrores(SaveAndLoad.instancia.CargarNumErrores().NumOfLose + 1);
+            //print(SaveAndLoad.instancia.CargarNumErrores().NumOfLose);
+            //ima_bochon_
         }
     }
 
