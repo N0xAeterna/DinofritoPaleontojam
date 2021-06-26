@@ -103,12 +103,13 @@ public class MeshScript : MonoBehaviour
             }
             if (TouchElemengt)
             {
+                print("E tocado un hueso");
                 if (ToolsScript.instancia.CanGive)
                 {
                     for (int i = 0; i < vertices.Length; i++)
                     {
-                        float distancia = Vector3.Distance(huesos[getid].transform.position, transform.TransformPoint(vertices[i])); print(distancia+"/"+vertices[i]);
-                        ButtonManager.instancia.ListBones[getid].SetActive(true);
+                        float distancia = Vector3.Distance(huesos[getid].transform.position, transform.TransformPoint(vertices[i]));
+
                         if (distancia < 3f)
                         {
                             TomarObjeto = true;
@@ -121,40 +122,11 @@ public class MeshScript : MonoBehaviour
                 }
                 else
                 {
-                    CountToDestroyObject += Time.deltaTime;
 
-
-                    switch (ToolsScript.instancia.Herramienta1)
-                    {
-                        case 0.03f:
-                            if (CountToDestroyObject > 0.1&&CanADD)
-                            {
-                                ButtonManager.instancia.DesactiveInStart1[0].SetActive(true);
-                                SaveAndLoad.instancia.GuardarNumErrores(SaveAndLoad.instancia.CargarNumErrores().NumOfLose+1);
-                                print(SaveAndLoad.instancia.CargarNumErrores().NumOfLose);
-                                CanADD = false;
-                                CountToDestroyObject = 0;
-
-                            }; break;
-                        case 0.01f:
-                            if (CountToDestroyObject > 1&& CanADD)
-                            {
-                                ButtonManager.instancia.DesactiveInStart1[0].SetActive(true);
-                                SaveAndLoad.instancia.GuardarNumErrores(SaveAndLoad.instancia.CargarNumErrores().NumOfLose + 1);
-                                print(SaveAndLoad.instancia.CargarNumErrores().NumOfLose);
-                                CanADD = false;
-                                CountToDestroyObject = 0;
-
-                            }; break;
-                       /* case 0.006f:
-                            if (CountToDestroyObject > 2)
-                            {
-                                ButtonManager.instancia.DesactiveInStart1[0].SetActive(true);
-                                CountToDestroyObject = 0;
-
-                            }
-                            ; break;*/
-                    }
+                    ButtonManager.instancia.DesactiveInStart1[0].SetActive(true);
+                    SaveAndLoad.instancia.GuardarNumErrores(SaveAndLoad.instancia.CargarNumErrores().NumOfLose + 1);
+                    print(SaveAndLoad.instancia.CargarNumErrores().NumOfLose);
+       
                 }
 
             }

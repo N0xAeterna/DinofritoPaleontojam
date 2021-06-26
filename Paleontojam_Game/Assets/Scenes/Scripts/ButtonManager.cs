@@ -7,8 +7,8 @@ public class ButtonManager : MonoBehaviour
 {
     public static ButtonManager instancia;
     [SerializeField]private List<GameObject> DesactiveInStart;
-    public List<GameObject> ActiveOnePerClick;
-    public List<GameObject> ListBones;
+
+
     private bool ActiveDesactiveB;
     public List<GameObject> DesactiveInStart1 { get => DesactiveInStart; set => DesactiveInStart = value; }
 
@@ -25,10 +25,7 @@ public class ButtonManager : MonoBehaviour
         {
             Desactive.SetActive(false);
         }
-        foreach (GameObject DesactiveB in ListBones)
-        {
-            DesactiveB.SetActive(false);
-        }
+      
     }
 
    
@@ -40,21 +37,7 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
-    public void ActivarUna(int idactivar)
-    {
-        for (int i = 0; i < ActiveOnePerClick.Count; i++)
-        {
-            if (i.Equals(idactivar))
-            {
-                ActiveOnePerClick[i].SetActive(true);
-            }
-            else
-            {
-                ActiveOnePerClick[i].SetActive(false);
-            }
-        }
-       
-    }
+
     public void ActiveDesactive(GameObject Canvas)
     {
         ActiveDesactiveB = !ActiveDesactiveB;
