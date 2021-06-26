@@ -13,6 +13,10 @@ public class DialogoManager : MonoBehaviour
     // soporte para UI, aqui se pone el texto para el nombre
     // y el texto donde se escribiran los dialogos
     [SerializeField]
+    GameObject cajaDialogo = null;
+    [SerializeField]
+    RawImage npcImage = null;
+    [SerializeField]
     Text txtNombre = null;
     [SerializeField]
     Text txtOracion = null;
@@ -53,7 +57,6 @@ public class DialogoManager : MonoBehaviour
     #endregion
 
     #region Metodos
-
     /// <summary>
     /// Singleton y inicializacion de oraciones
     /// </summary>
@@ -76,10 +79,12 @@ public class DialogoManager : MonoBehaviour
     /// Inicia el dialogo
     /// </summary>
     /// <param name="dialogo">Dialogo a mostrar</param>
-    public void IniciarDialogo(Dialogo dialogo)
+    public void IniciarDialogo(Dialogo dialogo, Texture textura)
     {
         if (!corriendo)
         {
+            cajaDialogo.SetActive(true);
+            npcImage.texture = textura;
             oraciones.Clear();
             foreach (string oracion in dialogo.Oraciones)
             {
@@ -137,6 +142,7 @@ public class DialogoManager : MonoBehaviour
     void FinalizarDialogo()
     {
         corriendo = false;
+        cajaDialogo.SetActive(false);
     }
 
     #endregion

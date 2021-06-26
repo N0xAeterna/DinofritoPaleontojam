@@ -154,7 +154,7 @@ public class Miningcart : MonoBehaviour
         if(that.gameObject.tag == "EndRoad" && !collHandled)
         {
             tiempoParaCambiarDeEscena.Iniciar();
-            CanvasAnimation.Instancia.AnimarCanvas();
+            CanvasAnimation.Instancia.AnimarCanvas(SceneManager.GetActiveScene().buildIndex + 1);
             rb.isKinematic = true;
 
             collHandled = true;
