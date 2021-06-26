@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class AudioStart : MonoBehaviour
 {
-  
+ 
     void Start()
     {
-     
-     
-   switch ( SceneManager.GetActiveScene().buildIndex)
+      
+        switch ( SceneManager.GetActiveScene().buildIndex)
         {
             case 0:AudioManager.StopAllSoundtracks();   AudioManager.PlaySoundtrack(AudioClipName.MenuSoundtrack);break;
             case 1: AudioManager.StopAllSoundtracks(); AudioManager.PlaySoundtrack(AudioClipName.MinigameOneSoundtrack);break;
@@ -24,6 +23,6 @@ public class AudioStart : MonoBehaviour
     {
         AudioManager.PlayOneShot(AudioClipName.MenuConfirm,false);
     }
+  
 
-   
 }
