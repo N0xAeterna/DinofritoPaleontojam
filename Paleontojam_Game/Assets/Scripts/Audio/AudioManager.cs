@@ -14,13 +14,12 @@ public static class AudioManager
 
     // soporte de sfx
     static AudioSource audioSource;
-    
+    // soporte de soundtracks
+    static AudioSource soundtrackAudioSource;
+
     // soporte de ducking sfx
     static AudioSource duckingSource;
     static AudioMixer audioMixer;
-
-    // soporte de soundtracks
-    static List<AudioSource> soundtrackAudioSources;
 
     // soporte de estado
     static bool inicializado = false;
@@ -46,19 +45,22 @@ public static class AudioManager
     /// Asigna la fuente principal de audio y agrega los clips de audio
     /// </summary>
     /// <param name="source">Fuente de audio principal</param>
-    public static void Inicializar(AudioSource source, AudioSource duckedSource, AudioMixer mixer)
+    public static void Inicializar(AudioSource source, AudioSource duckedSource, AudioSource soundtrack, AudioMixer mixer)
     {
         inicializado = true;
         audioSource = source;
         duckingSource = duckedSource;
 
-        audioClips = new Dictionary<AudioClipName, AudioClip>();
-        soundtrackAudioSources = new List<AudioSource>();
+        soundtrackAudioSource = soundtrack;
+        soundtrackAudioSource.playOnAwake = false;
+        soundtrackAudioSource.loop = true;
 
+        audioClips = new Dictionary<AudioClipName, AudioClip>();
         audioMixer = mixer;
 
         audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[1];
         duckingSource.outputAudioMixerGroup = mixer.FindMatchingGroups("DuckSFX")[0];
+        soundtrackAudioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Soundtrack")[0];
 
         // aqui van a agregar los clips de audio usando esta sintaxis
         audioClips.Add(AudioClipName.MenuBack, Resources.Load<AudioClip>("Sounds/MAIN_MENU_OCK_BACK"));
@@ -92,92 +94,61 @@ public static class AudioManager
     /// Reproduce una pista en loop con su propio AudioSource, en caso de haber un AudioSource sin usar en la coleccion, lo utiliza en lugar de crear uno nuevo
     /// </summary>
     /// <param name="nombre">Nombre de la pista</param>
-    public static void PlaySoundtrack(AudioClipName nombre)
+    public static void PlaySoundtrack(AudioClipName nombre, float initialVolume = 0f, float targetVolume = 1f, float fadingTime = 2f)
     {
-        bool playing = false;
-        if(audioSource != null)
-        {
-            if(soundtrackAudioSources.Count > 0)
-            {
-                foreach(AudioSource soundtrackAudioSource in soundtrackAudioSources)
-                {
-                    if(!playing)
-                    {
-                        if(soundtrackAudioSource.clip == audioClips[nombre])
-                        {
-                            if (!soundtrackAudioSource.isPlaying)
-                                soundtrackAudioSource.Play();
-                          
+        targetVolume = Mathf.Clamp01(targetVolume);
+        fadingTime = (fadingTime <= 0f) ? 0.1f : fadingTime;
 
-                            playing = true;
-                        }
-                        else if(!soundtrackAudioSource.isPlaying)
-                        {
-                            soundtrackAudioSource.clip = audioClips[nombre];
-                            soundtrackAudioSource.loop = true;
-                            soundtrackAudioSource.Play();
-                            playing = true;
-                        }
-                    }               
-                }
+        soundtrackAudioSource.volume = 0.0f;
+        soundtrackAudioSource.clip = audioClips[nombre];
+        soundtrackAudioSource.Play();
 
-                if (!playing)
-                    AddSoundtrackAudioSourceAndPlay(nombre);
-            }
-            else
-            {
-                AddSoundtrackAudioSourceAndPlay(nombre);
-            }
-        }
-    }
-
-    /// <summary>
-    /// Detiene una pista especifica sin afectar a las demas soundtracks actualmente reproduciendose
-    /// </summary>
-    /// <param name="nombre">Nombre de la pista</param>
-    public static void StopSoundtrack(AudioClipName nombre)
-    {
-        foreach(AudioSource soundtrackAudioSource in soundtrackAudioSources)
-        {
-            if(soundtrackAudioSource == audioClips[nombre])
-            {
-                soundtrackAudioSource.Stop();
-            }
-        }
+        soundtrackAudioSource.gameObject.GetComponent<GameAudioSource>().StopAllCoroutines();
+        soundtrackAudioSource.gameObject.GetComponent<GameAudioSource>().StartCoroutine(FadeIn(targetVolume, fadingTime, soundtrackAudioSource));
     }
 
     /// <summary>
     /// Detiene todas las pistas de soundtracks y elimina los AudioSource para no tener
     /// AudioSource innecesarios
     /// </summary>
-    public static void StopAllSoundtracks()
+    public static void StopSoundtrack()
     {
-        foreach(AudioSource soundTrackAudioSource in soundtrackAudioSources)
-        {
-            soundTrackAudioSource.Stop();
-            soundTrackAudioSource.gameObject.GetComponent<GameAudioSource>().DestroyAudioSource(soundTrackAudioSource);
-        }
-
-        soundtrackAudioSources.RemoveRange(0, soundtrackAudioSources.Count);
+        soundtrackAudioSource.Stop();
     }
 
     /// <summary>
-    /// Agrega un AudioSource de soundtrack y reproduce el soundtrack, reproduce en el grupo de mixer Soundtrack
+    /// Fades in the track to target volume within the fading time
     /// </summary>
-    /// <param name="nombre">Nombre de la pista</param>
-    static void AddSoundtrackAudioSourceAndPlay(AudioClipName nombre)
+    static IEnumerator<WaitForSeconds> FadeIn(float targetVolume, float fadingTime, AudioSource source)
     {
-        soundtrackAudioSources.Add(audioSource.gameObject.AddComponent<AudioSource>());
-
-        soundtrackAudioSources[soundtrackAudioSources.Count - 1].playOnAwake = false;
-        soundtrackAudioSources[soundtrackAudioSources.Count - 1].Stop();
-
-        soundtrackAudioSources[soundtrackAudioSources.Count - 1].outputAudioMixerGroup = audioMixer.FindMatchingGroups("Soundtrack")[0];
-
-        soundtrackAudioSources[soundtrackAudioSources.Count - 1].clip = audioClips[nombre];
-        soundtrackAudioSources[soundtrackAudioSources.Count - 1].loop = true;
-
-        soundtrackAudioSources[soundtrackAudioSources.Count - 1].Play();
+        if(source.volume < targetVolume)
+        {
+            float increment = (targetVolume - source.volume) / (fadingTime * 100);
+            while (source.volume < targetVolume)
+            {
+                source.volume += increment;
+                yield return new WaitForSeconds(0.0100f);
+            }
+        }
     }
+
+    /// <summary>
+    /// Fades out the track to target volume within the fading time
+    /// </summary>
+    static IEnumerator<WaitForSeconds> FadeOut(float targetVolume, float fadingTime, AudioSource source)
+    {
+        if (targetVolume < source.volume)
+        {
+            float decrement = (source.volume - targetVolume) / (fadingTime * 100f);
+            while (source.volume > targetVolume)
+            {
+                source.volume -= decrement;
+                yield return new WaitForSeconds(0.0100f);
+            }
+
+            source.Stop();
+        }
+    }
+
     #endregion
 }
