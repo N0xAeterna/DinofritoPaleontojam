@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
     public static ButtonManager instancia;
-    [SerializeField]private List<GameObject> DesactiveInStart;
+    [SerializeField]
+    private List<GameObject> DesactiveInStart;
 
 
     private bool ActiveDesactiveB;
@@ -25,11 +26,21 @@ public class ButtonManager : MonoBehaviour
         {
             Desactive.SetActive(false);
         }
-      
+
+        /* iniciando dialogo */
+        DialogoTrigger dialogo = FindObjectOfType<DialogoTrigger>();
+        if(dialogo != null)
+            StartCoroutine(IniciarDialogo(dialogo));
+    }
+
+    IEnumerator<WaitForSeconds> IniciarDialogo(DialogoTrigger dialogo)
+    {
+        yield return new WaitForSeconds(1.5f);
+        dialogo.IniciarDialogo();
     }
 
    
- public void Reiniciar()
+    public void Reiniciar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

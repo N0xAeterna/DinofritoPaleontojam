@@ -198,7 +198,7 @@ Transform:
   m_GameObject: {fileID: 4393624085020374435}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -47.1, y: 0.8, z: 10.9}
-  m_LocalScale: {x: 0.08, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 7882125506069966510}
   - {fileID: 6513287758850598401}
@@ -246,7 +246,7 @@ CapsuleCollider:
   m_Radius: 3.9976335
   m_Height: 7.9952693
   m_Direction: 1
-  m_Center: {x: -10, y: -15.304066, z: 10.74498}
+  m_Center: {x: -10.000001, y: -12.578548, z: 10.74498}
 --- !u!136 &1812719132
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -260,7 +260,7 @@ CapsuleCollider:
   m_Radius: 3.9976335
   m_Height: 7.9952693
   m_Direction: 1
-  m_Center: {x: -10, y: -15.304066, z: -10.74498}
+  m_Center: {x: -10, y: -12.502731, z: -10.74498}
 --- !u!136 &1812719133
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -274,7 +274,7 @@ CapsuleCollider:
   m_Radius: 3.9976335
   m_Height: 7.9952693
   m_Direction: 1
-  m_Center: {x: 10, y: -15.304066, z: -10.74498}
+  m_Center: {x: 10.000001, y: -12.602691, z: -10.74498}
 --- !u!136 &1812719135
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ CapsuleCollider:
   m_Radius: 3.9976335
   m_Height: 7.9952693
   m_Direction: 1
-  m_Center: {x: 10, y: -15.304066, z: 10.74498}
+  m_Center: {x: 10, y: -12.476663, z: 10.74498}
 --- !u!65 &1812719138
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -378,7 +378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5847933022434819259}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 52.1, y: -3.6, z: -40.7}
+  m_LocalPosition: {x: 52.1, y: -0.7, z: -40.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1942950278841353017}
@@ -409,7 +409,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7361485221703250964}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 3.8, y: -60.6, z: -72.7}
+  m_LocalPosition: {x: 3.8, y: -57.7, z: -72.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3397779260037285302}

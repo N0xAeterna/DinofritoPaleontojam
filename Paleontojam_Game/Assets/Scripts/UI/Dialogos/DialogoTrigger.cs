@@ -9,7 +9,10 @@ public class DialogoTrigger : MonoBehaviour
 
     // soporte para dialogo
     [SerializeField]
+    Texture ImagenNPC = null;
+    [SerializeField]
     Dialogo dialogo = null;
+    
 
     #endregion
 
@@ -19,7 +22,7 @@ public class DialogoTrigger : MonoBehaviour
     /// </summary>
     public void IniciarDialogo()
     {
-        DialogoManager.Instancia.IniciarDialogo(dialogo);
+        DialogoManager.Instancia.IniciarDialogo(dialogo, ImagenNPC);
     }
 
     #endregion

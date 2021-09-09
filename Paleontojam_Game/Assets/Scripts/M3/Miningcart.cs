@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Mining cart behavior
@@ -6,13 +7,15 @@
 public class Miningcart : MonoBehaviour
 {
     // accelaration support
-    const float Acceleration = 25f;
+    const float Acceleration = 20f;
     const float MaxVelocity = 40f;
     float accelerationInput;
 
     // speed clamping support
     bool needsToAccelerateForward = false;
     bool needsToAccelerateReverse = false;
+
+    Temporizador tiempoParaCambiarDeEscena;
 
     // jump support
     const float JumpForce = 1000f;
@@ -26,6 +29,8 @@ public class Miningcart : MonoBehaviour
 
     // for efficiency
     Rigidbody rb;
+
+    bool collHandled = false;
     
     /// <summary>
     /// Gets RigidBody Components
@@ -33,6 +38,10 @@ public class Miningcart : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        tiempoParaCambiarDeEscena = gameObject.AddComponent<Temporizador>();
+        tiempoParaCambiarDeEscena.Duracion = 5f;
+
+        AudioManager.PlaySoundtrack(AudioClipName.MinigameThreeSoundtrack);
     }
 
     /// <summary>
@@ -51,10 +60,18 @@ public class Miningcart : MonoBehaviour
             needsToAccelerateReverse = true;
         }
 
-        // updating input
-        jumpInput = Input.GetAxis("JumpMiningcart");
-        accelerationInput = Input.GetAxis("AccelerateMiningcart");
-        horizontalInput = Input.GetAxis("Horizontal");
+        if(tiempoParaCambiarDeEscena.Finalizado)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if(!tiempoParaCambiarDeEscena.Corriendo)
+        {
+            // updating input
+            jumpInput = Input.GetAxis("JumpMiningcart");
+            accelerationInput = Input.GetAxis("AccelerateMiningcart");
+            horizontalInput = Input.GetAxis("Horizontal");
+        }
     }
 
     /// <summary>
@@ -76,25 +93,25 @@ public class Miningcart : MonoBehaviour
                 rb.AddForce(transform.forward * accelerationInput * Acceleration, ForceMode.Acceleration);
                 needsToAccelerateReverse = false;
             }
-
+            /*
             // handling jumpinput
             if (jumpInput != 0 && !jumpApplied)
             {
                 rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
                 rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
                 jumpApplied = true;
-            }
+            }*/
 
         }
-
+        /*
         if (jumpInput == 0)
-            jumpApplied = false;
-
+            jumpApplied = false;*/
+        /*
         // handling mid air rotation
         if (horizontalInput != 0 && !onGround)
         {
             rb.AddTorque(transform.right * RotationForce * horizontalInput * Time.deltaTime, ForceMode.Impulse);
-        }
+        }*/
     }
 
     private void OnCollisionEnter(Collision other)
@@ -127,21 +144,20 @@ public class Miningcart : MonoBehaviour
         }
     }
 
-    // eliminar despues
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider that)
     {
-        // eliminar despues
-        if (other.transform.tag == "_LoseGame")
+        if(that.gameObject.tag == "FollowSwitch")
         {
-            _GameHandler.Instancia.Mensaje("Te has equivocado de camino, no has podido entregar el fosil");
-            _GameHandler.Instancia.IniciarTemporizador();
+            MiningcartCamera.seguir = (MiningcartCamera.seguir) ? false : true;
         }
 
-        // eliminar despues
-        if (other.transform.tag == "_WinGame")
+        if(that.gameObject.tag == "EndRoad" && !collHandled)
         {
-            _GameHandler.Instancia.Mensaje("Has entregado el fosil con exito! felicidades");
-            _GameHandler.Instancia.IniciarTemporizador();
+            tiempoParaCambiarDeEscena.Iniciar();
+            CanvasAnimation.Instancia.AnimarCanvas(SceneManager.GetActiveScene().buildIndex + 1);
+            rb.isKinematic = true;
+
+            collHandled = true;
         }
     }
 }
